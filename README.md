@@ -100,6 +100,12 @@ This section exists because a repository that only lists its strengths is not ev
 - **It is not yet a harness you plug into your own agents.** The engine runs on its own frozen
   fixtures. Composable gates for third-party use are the next milestone, and the repository name
   is a destination as much as a description.
+- **Two adapters are not wired.** The chain defaults to a mock git implementation
+  (`run_chain.py:277`), so the keep-or-revert step runs against a stand-in rather than a real
+  repository. Mining real sessions raises `NotImplementedError` (`extractor.py:110`), so feedback
+  has to be supplied rather than harvested. Both are marked in the source as deferred work, and
+  both matter more than the missing cost figures: they sit under the headline claim that a bad
+  patch gets reverted.
 - **No cost or latency figures.** Tokens per task and review time are not measured anywhere here.
 
 ## This repository is an extract

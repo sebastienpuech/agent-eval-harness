@@ -104,6 +104,12 @@ Cette section existe parce qu'un dépôt qui ne liste que ses forces n'est pas u
 - **Ce n'est pas encore un harnais qu'on branche sur ses propres agents.** Le moteur tourne sur
   ses fixtures gelées. Des portails composables utilisables par un tiers sont le prochain jalon,
   et le nom du dépôt est autant une destination qu'une description.
+- **Deux adaptateurs ne sont pas câblés.** La chaîne utilise par défaut une implémentation git
+  factice (`run_chain.py:277`), donc l'étape garder-ou-revenir tourne contre une doublure et non
+  contre un vrai dépôt. L'extraction des sessions réelles lève `NotImplementedError`
+  (`extractor.py:110`) : les retours doivent être fournis, pas moissonnés. Les deux sont marqués
+  comme différés dans le code, et les deux comptent davantage que l'absence de chiffres de coût :
+  ils se trouvent sous l'affirmation principale, celle qui dit qu'un mauvais correctif est annulé.
 - **Aucun chiffre de coût ni de latence.** Jetons par tâche et temps de relecture ne sont
   mesurés nulle part ici.
 
