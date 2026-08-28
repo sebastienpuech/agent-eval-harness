@@ -34,10 +34,10 @@ def test_build_holdout_structure_et_scores():
 
 
 def test_score_output_detecteur():
-    sent = ["Ta presentation d'hier etait super claire"]
+    sent = ["Ta remarque sur le cache est bien vue"]
     # doublon -> fire -> 0.0
     assert holdout_scorer._score_output(
-        "Ta presentation d'hier etait super claire", sent) == 0.0
+        "Ta remarque sur le cache est bien vue", sent) == 0.0
     # neuf -> no_fire -> 1.0
     assert holdout_scorer._score_output("Du coup tu vises quoi pour la demo", sent) == 1.0
 

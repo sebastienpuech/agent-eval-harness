@@ -40,14 +40,14 @@ def test_no_fire_sur_draft_propre():
 # --- Determinisme et robustesse ---
 
 def test_identique_fire():
-    sent = ["Ta presentation d'hier etait super claire"]
-    assert doublon.fires("Ta presentation d'hier etait super claire", sent) is True
+    sent = ["Ta remarque sur le cache est bien vue"]
+    assert doublon.fires("Ta remarque sur le cache est bien vue", sent) is True
 
 
 def test_insensible_casse_accents_ponctuation():
-    sent = ["J'espere que ta semaine se passe bien !"]
+    sent = ["Merci pour la relecture du patch !"]
     # meme reponse, casse/accents/ponctuation differents -> doit fire
-    assert doublon.fires("j espere que ta semaine se passe bien", sent) is True
+    assert doublon.fires("merci pour la relecture du patch", sent) is True
 
 
 def test_liste_vide_ne_fire_jamais():
@@ -55,13 +55,13 @@ def test_liste_vide_ne_fire_jamais():
 
 
 def test_message_distinct_ne_fire_pas():
-    sent = ["Ta presentation d'hier etait super claire"]
-    assert doublon.fires("Du coup tu vises quoi pour la prochaine demo", sent) is False
+    sent = ["Ta remarque sur le cache est bien vue"]
+    assert doublon.fires("Tu preferes qu'on scinde la PR en deux", sent) is False
 
 
 def test_detect_rapporte_index_et_score():
-    sent = ["message A distinct", "Ta presentation d'hier etait super claire"]
-    res = doublon.detect("Ta presentation d'hier etait super claire", sent)
+    sent = ["message A distinct", "Ta remarque sur le cache est bien vue"]
+    res = doublon.detect("Ta remarque sur le cache est bien vue", sent)
     assert res["fired"] is True
     assert res["matched_idx"] == 1
     assert res["score"] >= doublon.DEFAULT_THRESHOLD
