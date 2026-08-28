@@ -1,5 +1,5 @@
 ---
-name: skill-auto-improver-v2
+name: skill_auto_improver_v2
 description: >
   COMPOSANT INTERNE (le muscle) de la chaîne `amelioration_continue` — PAS une porte d'entrée.
   Mine les ratés réels d'un skill cible (sessions idle), diagnostique les modes de défaillance cités,
