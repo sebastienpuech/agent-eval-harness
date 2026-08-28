@@ -1,0 +1,4 @@
+{
+  "_note": "Fixture GOLDEN synthetique (skill-conseil jouet generique). Prouve la lentille fork-aware : sur un skill de JUGEMENT, fire sur une regle mecanique (§1) et PAS sur l'assert deterministe (§2) ; en regime FACTUEL, ne fire PAS du tout (fork-awareness).",
+  "skill_md": "# skill jouet (jugement)\n## Regles\n- §1 : toujours poser une question a la fin.\n- §2 : max 3 relances (assert deterministe).\n"
+}

@@ -1,0 +1,20 @@
+{
+  "_note": "FIXTURE SYNTHETIQUE anonymisee. Cas PROPRE : aucun signal d'echec -- l'utilisateur accepte la proposition telle quelle. Sert de temoin negatif (l'extracteur ne doit PAS le compter comme rate).",
+  "session_id": "fixt-sj-ok-01",
+  "status": "idle",
+  "skill": "skill-jugement",
+  "messages": [
+    {
+      "role": "user",
+      "text": "commentaire de revue : un mainteneur propose de reprendre le sujet au prochain point technique. Ecris la reponse."
+    },
+    {
+      "role": "assistant",
+      "text": "Reponse proposee : 'Ca marche, je serai la, on cale un creneau le matin ?'"
+    },
+    {
+      "role": "user",
+      "text": "parfait, j'envoie ca."
+    }
+  ]
+}

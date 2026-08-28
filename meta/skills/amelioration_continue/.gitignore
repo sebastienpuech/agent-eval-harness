@@ -1,0 +1,11 @@
+.mode-plan/
+__pycache__/
+*.pyc
+.runs/
+config.json
+_muscle_out/
+
+.env
+proposals/
+memory/interactions.jsonl
+memory/decision.jsonl

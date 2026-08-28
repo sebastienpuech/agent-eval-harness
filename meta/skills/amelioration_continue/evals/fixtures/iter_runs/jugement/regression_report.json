@@ -1,0 +1,10 @@
+{
+  "_bootstrap": "SEED S3 : regression_report d'iterer (branche jugement re-mesuree par iterer ; la chaine LIT, ne re-score pas).",
+  "signal": "grille_jugement",
+  "delta_net_holdout": 0.3333,
+  "deltas_par_cas": {"ho_j1": 1.0, "ho_j2": 0.0, "ho_j3": 0.0},
+  "regression_suite": 1.0,
+  "ship": true,
+  "cas_regresses_error_analysis": [],
+  "anti_patterns": []
+}

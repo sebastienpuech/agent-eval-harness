@@ -1,0 +1,217 @@
+{
+  "_note": "Golden CIBLE de skill-jugement (schema data_model Patch v1.1). SCELLE avant la passe : le juge gele le consomme, JAMAIS le rewriter. 0 tag reel disponible aujourd'hui (verdicts.md vide) -> 10 cas PROXY red-team, fils de revue SYNTHETIQUES anonymises (aucun fil reel, aucun auteur reel). Chaque cas porte un source_session_id (namespace 'proxy-sj-*', disjoint des vraies sessions) pour le holdout G12. n_tags_reels=0 -> target_runner doit sortir signal-insuffisant (< 2 tags).",
+  "skill": "skill-jugement",
+  "sealed_at": "2026-07-06",
+  "cases": [
+    {
+      "id": "SJ-01",
+      "input": {
+        "brief": "commentaire de revue : il demande de renommer la fonction ; deux commentaires plus haut il signalait deja la dette sur ce module"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "no_generic_ai_phrase",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-01"
+    },
+    {
+      "id": "SJ-02",
+      "input": {
+        "brief": "commentaire de revue : elle decrit la migration du schema, trace de l'erreur collee dans le fil"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "ancre_sur_detail_concret",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-02"
+    },
+    {
+      "id": "SJ-03",
+      "input": {
+        "brief": "issue publique : il demande une relecture de sa PR et explique pourquoi ce refactor le bloque"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "no_generic_ai_phrase",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-03"
+    },
+    {
+      "id": "SJ-04",
+      "input": {
+        "brief": "fil de revue au long cours : 4e aller-retour d'une serie ou il detaille son choix d'architecture"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "registre_aligne",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-04"
+    },
+    {
+      "id": "SJ-05",
+      "input": {
+        "brief": "commentaire minimaliste : trois mots, aucune question, aucun pointeur de ligne"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "ne_fabrique_pas_de_faux_detail",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-05"
+    },
+    {
+      "id": "SJ-06",
+      "input": {
+        "brief": "commentaire de revue : la subordonnee porte le sens ('on merge seulement si la CI repasse au vert')"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "ne_coupe_pas_la_subordonnee_porteuse",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-06"
+    },
+    {
+      "id": "SJ-07",
+      "input": {
+        "brief": "commentaire de revue : elle propose d'extraire un module et demande un avis franc"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "no_generic_ai_phrase",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-07"
+    },
+    {
+      "id": "SJ-08",
+      "input": {
+        "brief": "relance sur une PR ouverte depuis trois semaines sans nouvelle revue"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "ancre_sur_detail_concret",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-08"
+    },
+    {
+      "id": "SJ-09",
+      "input": {
+        "brief": "commentaire de revue : il repond par un lien vers la doc, sans un mot"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "registre_aligne",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-09"
+    },
+    {
+      "id": "SJ-10",
+      "input": {
+        "brief": "premiere contribution d'un inconnu au depot : demande precise, registre soutenu"
+      },
+      "assertions": [
+        {
+          "check": "reponse_len_words",
+          "op": "<=",
+          "value": 12
+        },
+        {
+          "check": "no_generic_ai_phrase",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "source": "proxy_redteam",
+      "real_tags": [],
+      "source_session_id": "proxy-sj-10"
+    }
+  ]
+}

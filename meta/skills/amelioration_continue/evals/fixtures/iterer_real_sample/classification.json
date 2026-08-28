@@ -1,0 +1,87 @@
+{
+  "regime": "factuel",
+  "part_oracle_mecanique": 0.75,
+  "n_retours_normalises": 12,
+  "familles": {
+    "A": 7,
+    "B": 2,
+    "C": 2,
+    "D": 1
+  },
+  "items": [
+    {
+      "id": "cas-0001",
+      "famille": "A",
+      "type": "contrainte_dure",
+      "regle_cible": "limite_5_categories"
+    },
+    {
+      "id": "cas-0002",
+      "famille": "A",
+      "type": "contrainte_dure",
+      "regle_cible": "limite_5_categories"
+    },
+    {
+      "id": "cas-0003",
+      "famille": "A",
+      "type": "contrainte_dure",
+      "regle_cible": "titre_section_norme"
+    },
+    {
+      "id": "cas-0004",
+      "famille": "A",
+      "type": "contrainte_dure",
+      "regle_cible": "ordre_sections"
+    },
+    {
+      "id": "cas-0005",
+      "famille": "A",
+      "type": "contrainte_dure",
+      "regle_cible": "unite_pourcentage"
+    },
+    {
+      "id": "cas-0006",
+      "famille": "A",
+      "type": "contrainte_dure",
+      "regle_cible": "arrondi_1_decimale"
+    },
+    {
+      "id": "cas-0007",
+      "famille": "A",
+      "type": "contrainte_dure",
+      "regle_cible": "legende_obligatoire"
+    },
+    {
+      "id": "cas-0008",
+      "famille": "B",
+      "type": "regle_detecteur",
+      "regle_cible": "bins_duree"
+    },
+    {
+      "id": "cas-0009",
+      "famille": "B",
+      "type": "regle_detecteur",
+      "regle_cible": "detecteur_colonne_categorie"
+    },
+    {
+      "id": "cas-0010",
+      "famille": "C",
+      "type": "bloque_input_externe",
+      "regle_cible": null
+    },
+    {
+      "id": "cas-0011",
+      "famille": "C",
+      "type": "bloque_input_externe",
+      "regle_cible": null
+    },
+    {
+      "id": "cas-0012",
+      "famille": "D",
+      "type": "jugement",
+      "regle_cible": null
+    }
+  ],
+  "degraded": true,
+  "degraded_raison": "corpus tableur hors-repo -> classification issue de la fixture golden"
+}

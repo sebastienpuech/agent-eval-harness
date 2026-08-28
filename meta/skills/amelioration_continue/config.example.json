@@ -1,0 +1,6 @@
+{
+  "_doc": "Copier en config.json (gitignore) et ajuster si les sous-skills ne sont pas aux emplacements par defaut (siblings dans meta/skills/). Les 3 racines peuvent aussi venir de variables d'env.",
+  "ITERER_PATH": "/chemin/vers/meta/skills/iterer-sur-retours",
+  "MUSCLE_PATH": "/chemin/vers/meta/skills/skill_auto_improver_v2",
+  "SKILLS_ROOT": "/chemin/vers/racine-des-skills"
+}

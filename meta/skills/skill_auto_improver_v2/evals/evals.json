@@ -1,0 +1,161 @@
+{
+  "_note": "Golden META de la MACHINERIE (a ne pas confondre avec le golden CIBLE evals/cible/<skill>/sealed.json). Schema data_model 2, format critical_checks (verifiable sans LLM). En Session 1, seuls les checks structurels sont gradables ; ceux qui dependent d'une feature non encore codee (extracteur S2, isolation S3, rewriter/juge S4, orchestrateur S5) sont SKIP-si-absent (logges, pas de faux echec). G12-G15 seront ajoutes a leurs sessions.",
+  "skill_name": "skill-auto-improver-v2",
+  "suites": {
+    "capability": ["G1_capture", "G3_diagnostic", "G4_reecriture", "G4b_supersedes"],
+    "regression": ["G5_juge_separe", "G6_revert", "G7_no_automerge",
+                   "G8_anti_gaming", "G9_circuit_breaker", "G11_confidentialite",
+                   "G10_proposition", "G12_golden_holdout", "G13_judge_calibration",
+                   "G14_fitness_mixte", "G15_budget", "G16_red_team"]
+  },
+  "test_cases": [
+    {
+      "name": "G1_capture",
+      "suite": "capability",
+      "fixture": "fixtures/transcripts_3/",
+      "feature_from_session": 2,
+      "critical_checks": [
+        {"check": "equals", "target": "rates_count", "value": 2},
+        {"check": "regex_absent", "target": "persisted_text", "value": "(@\\w+|https?://)", "reason": "zero PII/URL"},
+        {"check": "subset_of_allowlist", "target": "persisted_fields", "reason": "confidentialite"}
+      ]
+    },
+    {
+      "name": "G3_diagnostic",
+      "suite": "capability",
+      "feature_from_session": 3,
+      "critical_checks": [
+        {"check": "equals", "target": "citations_ancrees_ratio", "value": 1.0, "reason": "100% des citations ancrees dans un resume reel"},
+        {"check": "valid_json", "target": "diagnosis", "reason": "message diagnosis conforme au schema"}
+      ]
+    },
+    {
+      "name": "G4_reecriture",
+      "suite": "capability",
+      "feature_from_session": 4,
+      "critical_checks": [
+        {"check": "equals", "target": "rewriter_lignes_supprimees", "value": 0, "reason": "append-only strict"},
+        {"check": "equals", "target": "rewriter_sections_touchees", "value": 1, "reason": "1 section max (anti context-collapse)"}
+      ]
+    },
+    {
+      "name": "G4b_supersedes",
+      "suite": "capability",
+      "feature_from_session": 4,
+      "critical_checks": [
+        {"check": "equals", "target": "supersedes_lignes_supprimees", "value": 0, "reason": "deprecier = inserer un marqueur (Sce.4b), suppressions restent 0"},
+        {"check": "equals", "target": "supersedes_cite_complet", "value": true, "reason": "un supersedes cite {regle_id, raison, remplacee_par}"}
+      ]
+    },
+    {
+      "name": "G5_juge_separe",
+      "suite": "regression",
+      "feature_from_session": 4,
+      "critical_checks": [
+        {"check": "disjoint", "target_a": "judge_input", "target_b": "rewriter_notes",
+         "reason": "anti-Goodhart : le juge ne voit pas la rhetorique du rewriter"},
+        {"check": "equals", "target": "juge_distinct_call", "value": true, "reason": "juge = invocation separee"}
+      ]
+    },
+    {
+      "name": "G6_revert",
+      "suite": "regression",
+      "feature_from_session": 4,
+      "critical_checks": [
+        {"check": "equals", "target": "revert_proposals_emitted", "value": 0, "reason": "regression -> plateau -> 0 proposition"},
+        {"check": "equals", "target": "revert_head_unchanged", "value": true, "reason": "revert propre : HEAD inchange"}
+      ]
+    },
+    {
+      "name": "G7_no_automerge",
+      "suite": "regression",
+      "feature_from_session": 5,
+      "critical_checks": [
+        {"check": "equals", "target": "live_md_unchanged", "value": true, "reason": "une passe ne touche JAMAIS le SKILL.md live"},
+        {"check": "equals", "target": "diff_proposed_exists", "value": true, "reason": "un proposition.diff est produit (sandbox)"}
+      ]
+    },
+    {
+      "name": "G10_proposition",
+      "suite": "regression",
+      "feature_from_session": 5,
+      "critical_checks": [
+        {"check": "equals", "target": "report_has_4_blocks", "value": true, "reason": "rapport matinal en 4 blocs (quoi/pourquoi/delta/valider)"}
+      ]
+    },
+    {
+      "name": "G8_anti_gaming",
+      "suite": "regression",
+      "feature_from_session": 4,
+      "critical_checks": [
+        {"check": "equals", "target": "gamed_rejected", "value": true,
+         "reason": "une variante gamee (capability haut, regression < 1.0) est disqualifiee (revert)"}
+      ]
+    },
+    {
+      "name": "G9_circuit_breaker",
+      "suite": "regression",
+      "feature_from_session": 5,
+      "critical_checks": [
+        {"check": "equals", "target": "circuit_breaker_plateau", "value": true, "reason": "3 reverts consecutifs -> plateau, arret"},
+        {"check": "max_le", "target": "cb_iterations", "value": 3, "reason": "max 3 iterations/passe"}
+      ]
+    },
+    {
+      "name": "G11_confidentialite",
+      "suite": "regression",
+      "feature_from_session": 2,
+      "critical_checks": [
+        {"check": "subset_of_allowlist", "target": "persisted_fields", "reason": "champ hors allowlist absent"},
+        {"check": "regex_absent", "target": "persisted_text", "value": "(@\\w+|https?://)", "reason": "@handle et URL du fil scrubes"},
+        {"check": "regex_absent", "target": "persisted_text", "value": "(?i)\\bmarc\\b", "reason": "PRENOM d'auteur injecte doit ressortir scrube (NER, pas que regex -- patch SIM-002)"}
+      ]
+    },
+    {
+      "name": "G12_golden_holdout",
+      "suite": "regression",
+      "feature_from_session": 3,
+      "critical_checks": [
+        {"check": "equals", "target": "isolation_ok", "value": true, "reason": "2 disjonctions clean (juge/notes, rewriter/golden)"},
+        {"check": "equals", "target": "pool_disjoint", "value": true, "reason": "sessions rewriter (fixt-sj-*) ∩ golden (proxy-sj-*) = vide"},
+        {"check": "equals", "target": "leak_detected", "value": true, "reason": "une fuite golden injectee dans le contexte rewriter est bien attrapee (ROUGE)"},
+        {"check": "equals", "target": "run_pass_blocks_leak", "value": true, "reason": "GATE RUNTIME (red-team #1) : run_pass AVORTE reellement sur une fuite golden, pas seulement un test unitaire sur litteraux"}
+      ]
+    },
+    {
+      "name": "G13_judge_calibration",
+      "suite": "regression",
+      "feature_from_session": 4,
+      "critical_checks": [
+        {"check": "equals", "target": "calibration_ok", "value": true, "reason": "agreement proxy/tags >= 0.75 -> proxy calibre"},
+        {"check": "equals", "target": "calibration_low_detected", "value": true, "reason": "un agreement < 0.75 est bien detecte comme non-calibre (poids proxy -> 0)"}
+      ]
+    },
+    {
+      "name": "G14_fitness_mixte",
+      "suite": "regression",
+      "feature_from_session": 4,
+      "critical_checks": [
+        {"check": "equals", "target": "g14a_follows_tag", "value": true, "reason": "tag+proxy discordant -> score suit le tag (§9)"},
+        {"check": "equals", "target": "g14b_proxy_only", "value": true, "reason": "sans tag -> proxy + flag proxy-only"},
+        {"check": "equals", "target": "g14c_mixte", "value": true, "reason": "mix tag+proxy -> confiance mixte"}
+      ]
+    },
+    {
+      "name": "G15_budget",
+      "suite": "regression",
+      "feature_from_session": 2,
+      "critical_checks": [
+        {"check": "max_le", "target": "subagent_calls", "value": 120, "reason": "budget appels sous-agents/passe non depasse (compteur mocke)"}
+      ]
+    },
+    {
+      "name": "G16_red_team",
+      "suite": "regression",
+      "feature_from_session": 6,
+      "critical_checks": [
+        {"check": "equals", "target": "red_team_all_caught", "value": true, "reason": "les 6 attaques adversariales (fuite golden, citation fabriquee, variante gamee, PII, suppression deguisee, supersedes non cite) sont toutes attrapees"}
+      ]
+    }
+  ]
+}

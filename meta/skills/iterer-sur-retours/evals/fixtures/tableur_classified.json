@@ -1,0 +1,19 @@
+{
+  "_note": "FIXTURE GOLDEN synthetique (non sensible) refletant la distribution CONNUE de tableur : majorite famille A/B (oracle mecanique) -> fork=factuel, part_oracle>=0.5. Garde-fou du cas-graine (references/fork.md). N'est PAS le corpus reel (hors-repo).",
+  "skill_cible": "skill-tableur-demo",
+  "n_retours_normalises": 12,
+  "items": [
+    {"id": "cas-0001", "famille": "A", "type": "contrainte_dure",     "regle_cible": "camembert_le5options"},
+    {"id": "cas-0002", "famille": "A", "type": "contrainte_dure",     "regle_cible": "camembert_le5options"},
+    {"id": "cas-0003", "famille": "A", "type": "contrainte_dure",     "regle_cible": "titre_section_norme"},
+    {"id": "cas-0004", "famille": "A", "type": "contrainte_dure",     "regle_cible": "ordre_sections"},
+    {"id": "cas-0005", "famille": "A", "type": "contrainte_dure",     "regle_cible": "unite_pourcentage"},
+    {"id": "cas-0006", "famille": "A", "type": "contrainte_dure",     "regle_cible": "arrondi_1_decimale"},
+    {"id": "cas-0007", "famille": "A", "type": "contrainte_dure",     "regle_cible": "legende_obligatoire"},
+    {"id": "cas-0008", "famille": "B", "type": "regle_detecteur",     "regle_cible": "bins_duree"},
+    {"id": "cas-0009", "famille": "B", "type": "regle_detecteur",     "regle_cible": "detecteur_colonne_statut"},
+    {"id": "cas-0010", "famille": "C", "type": "bloque_input_externe", "regle_cible": null},
+    {"id": "cas-0011", "famille": "C", "type": "bloque_input_externe", "regle_cible": null},
+    {"id": "cas-0012", "famille": "D", "type": "jugement",            "regle_cible": null}
+  ]
+}

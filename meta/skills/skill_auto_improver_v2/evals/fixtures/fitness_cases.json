@@ -1,0 +1,26 @@
+{
+  "_note": "FIXTURES synthetiques pour golden_runner (fitness mixte §9 + calibration G13). proxy_verdict in [0,1] ; real_tag in {accepte,rejete,null} ; proxy_bin/tag in {accepte,rejete}.",
+  "g14a_discordant": [
+    {"id": "c1", "real_tag": "rejete", "proxy_verdict": 1.0, "regression_pass": true}
+  ],
+  "g14b_proxy_only": [
+    {"id": "c1", "real_tag": null, "proxy_verdict": 0.8, "regression_pass": true},
+    {"id": "c2", "real_tag": null, "proxy_verdict": 0.6, "regression_pass": true}
+  ],
+  "g14c_mixte": [
+    {"id": "c1", "real_tag": "accepte", "proxy_verdict": 0.2, "regression_pass": true},
+    {"id": "c2", "real_tag": null, "proxy_verdict": 0.9, "regression_pass": true}
+  ],
+  "calibration_ok": [
+    {"proxy_bin": "accepte", "tag": "accepte"},
+    {"proxy_bin": "rejete", "tag": "rejete"},
+    {"proxy_bin": "accepte", "tag": "accepte"},
+    {"proxy_bin": "rejete", "tag": "accepte"}
+  ],
+  "calibration_low": [
+    {"proxy_bin": "accepte", "tag": "rejete"},
+    {"proxy_bin": "accepte", "tag": "rejete"},
+    {"proxy_bin": "rejete", "tag": "accepte"},
+    {"proxy_bin": "accepte", "tag": "accepte"}
+  ]
+}

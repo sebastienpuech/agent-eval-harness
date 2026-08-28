@@ -1,0 +1,8 @@
+{
+  "_note": "FIXTURE synthetique : colonnes par cas, pour DERIVER attendu_par_cas par introspection (patch SIM-008) sans monter le corpus reel (hors-repo). En run reel, introspect_columns() lit l'entete du dataset ; ici on lit ce schema. Un cas absent de ce schema -> colonnes=None -> 'a_valider_humain'.",
+  "C21": ["job", "duree", "statut", "tentatives"],
+  "C32": ["job", "duration", "status", "attempts"],
+  "C67": ["job", "statut", "tentatives"],
+  "C41": ["job", "duration", "status", "attempts"],
+  "C75": ["job", "status", "attempts"]
+}

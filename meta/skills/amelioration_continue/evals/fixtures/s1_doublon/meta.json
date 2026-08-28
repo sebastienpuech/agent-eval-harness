@@ -1,0 +1,17 @@
+{
+  "case_id": "s1_doublon",
+  "date": "2026-07-07",
+  "source_skill": "demo-revue",
+  "type_itere": "regle_detecteur",
+  "titre": "Amnesie de fil : reponse quasi identique a une reponse deja postee",
+  "resume": "Le skill a propose une reponse quasi identique a une reponse deja postee par l'utilisateur dans le fil de revue (bug 'amnesie de fil' documente dans demo-revue/SKILL.md). L'utilisateur a demande de verifier l'absence de doublon depuis le debut du fil ; le skill a concede et reecrit.",
+  "sent_by_user": [
+    "Ta remarque sur le cache est juste, tu peux me dire comment tu geres l'invalidation en entree",
+    "Ce rebase sur main apres trois semaines de branche a du etre penible"
+  ],
+  "attendu": {
+    "draft_doublon.md": "fire",
+    "draft_propre.md": "no_fire"
+  },
+  "confidentialite": "contenu synthetique anonymise ; aucun extrait de fil reel ; aucun nom d'auteur ; sujets techniques neutres (invalidation de cache, rebase)"
+}

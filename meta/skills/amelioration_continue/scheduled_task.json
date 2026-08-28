@@ -1,0 +1,16 @@
+{
+  "_note": "SPEC de la tâche nocturne -- NON ENREGISTRÉE. Le cron ne s'arme qu'APRÈS >=1 passe réelle validée par l'utilisateur (prérequis S6), et depuis une session INTERACTIVE (créer une tâche planifiée = modif système persistante). Enregistrer via le Planificateur de tâches Windows (déclencheur : à l'ouverture de session) ou le MCP scheduled-tasks. Le bot exige un token Telegram DÉDIÉ : deux process qui pollent le même token -> 409 Conflict. La quarantaine (lib/quarantaine.py) protège : 2 erreurs consécutives -> le cron skippe.",
+  "name": "amelioration-continue-nightly",
+  "status": "NON_ENREGISTREE",
+  "activer_en": "S6, après 1 passe réelle validée + bot déployé (python-telegram-bot + token dédié)",
+  "schedule": {"cron": "0 3 * * *", "tz": "<ta-timezone>", "_tz": "IANA (ex. Europe/Berlin, America/New_York) ; à défaut, le fuseau local de la machine convient : la tâche est locale.", "description": "chaque nuit à 03:00, au logon"},
+  "command": "python lib/run_chain.py --skill demo-revue --trigger cron",
+  "cwd": "<racine-skills>/meta/skills/amelioration_continue",
+  "garde_fous": {
+    "trigger": "cron -> respecte la quarantaine (2 erreurs consécutives -> skip auto jusqu'à relance manuelle)",
+    "idle_only": true,
+    "budgets": {"MAX_WALLCLOCK_SECONDS": 2700, "AMELIORE_SAMPLE": 24},
+    "human_in_the_loop": "la passe écrit seulement proposals/<skill>/<date>/ ; AUCUNE écriture live sans « oui » sur Telegram (apply_proposal)"
+  },
+  "sortie_attendue": "proposals/<skill>/<date>/ (proposition.json + candidate + verdict) + push Telegram si statut=propose"
+}

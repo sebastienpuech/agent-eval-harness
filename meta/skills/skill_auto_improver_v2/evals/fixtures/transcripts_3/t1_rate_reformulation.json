@@ -1,0 +1,20 @@
+{
+  "_note": "FIXTURE SYNTHETIQUE anonymisee (aucun fil reel, aucun auteur reel). Rate attendu : signal 'reformulation_manuelle' -- l'utilisateur reecrit lui-meme la reponse proposee, preuve que le skill s'est arrete au mot-cle du dernier message sans voir ce qu'il y avait derriere.",
+  "session_id": "fixt-sj-rate-01",
+  "status": "idle",
+  "skill": "skill-jugement",
+  "messages": [
+    {
+      "role": "user",
+      "text": "commentaire de revue : il propose de sortir la logique de retry du controleur pour la mettre dans le client. Ecris la reponse."
+    },
+    {
+      "role": "assistant",
+      "text": "Reponse proposee : 'Bonne idee, c'est vraiment une tres bonne approche !'"
+    },
+    {
+      "role": "user",
+      "text": "non, ca paraphrase son commentaire sans rien apporter. je reformule moi-meme : 'Sortir le retry du controleur le rend testable, mais il faudra un budget de tentatives cote client, tu vois ca ou ?'"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "tableur",
+  "skill_cible": "skill-tableur-demo",
+  "repo_pointer": "chemin/vers/skill-tableur-demo",
+  "scenario_ref": "spec_produit.md#scenario-1-cas-factuel",
+  "regime_attendu": "factuel",
+  "retours": {
+    "format_origine": [
+      "tracker-HTML",
+      "chat-transcript"
+    ],
+    "volume_approx": 131,
+    "cas_cites": [
+      "C21",
+      "C32",
+      "C33"
+    ],
+    "note": "~120 commentaires ancres sur 2 rapports de build + 11 retours de fil de revue (run adversarial sur 3 rapports, C33 ajoute). Corpus et verbatims hors repo, charges en JIT read-only (spec 0bis). Aucun contenu sensible copie ici."
+  },
+  "corpus": {
+    "hors_repo": true,
+    "held_out_candidats": [
+      "C67",
+      "C41",
+      "C75"
+    ],
+    "note": "Exports de builds jamais cites par un retour -> candidats held-out sanctuarises (Case.used_for_return == false)."
+  },
+  "familles_attendues": {
+    "A_structurelle": "majorite",
+    "B_regle_detecteur": "zone a risque (ex. bins_duree cale sur les colonnes de C21/C32)",
+    "C_bloque_input": ">=1",
+    "D_jugement_narratif": "minoritaire (route vers la sous-routine jugement, S5)"
+  },
+  "signal_attendu": "matrice_deterministe",
+  "pii": "corpus tableur = exports d'outillage de build, qui peuvent porter des identifiants d'infrastructure -- jamais copies ici ni en memoire (allowlist stricte)."
+}

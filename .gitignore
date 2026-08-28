@@ -1,0 +1,22 @@
+# Motifs anti-tells : LOCAL uniquement, jamais versionne (c'est la carte de ce qu'on cache).
+.githooks/denylist.local.txt
+
+# Caches / artefacts
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+.venv/
+*.zip
+*.log
+
+# Runtime des skills
+.iter/
+signal/
+.runs/
+config.json
+.env
+_muscle_out/
+
+# Note de reprise locale, jamais publiee.
+ETAT-CHANTIER.md

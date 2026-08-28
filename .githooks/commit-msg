@@ -1,0 +1,28 @@
+#!/bin/sh
+# commit-msg fail-closed : scanne le MESSAGE du commit contre la denylist locale.
+#
+# Pourquoi un hook separe de `pre-commit` : un hook `pre-commit` ne recoit AUCUN argument. Il
+# ne peut donc pas lire le message -- c'est `commit-msg` qui recoit en $1 le chemin du fichier
+# de message. Le partage des taches est fige ici :
+#   pre-commit -> contenu indexe + identite auteur/committer (git var)
+#   commit-msg -> message
+# Le message part sur GitHub avec le commit : il merite le meme scan que le contenu.
+
+HOOK_DIR=$(dirname "$0")
+. "$HOOK_DIR/_denylist.sh"
+
+patfile=$(mktemp)
+trap 'rm -f "$patfile"' EXIT
+load_denylist "$patfile" || exit 1
+
+# -I : un fichier de message binaire n'existe pas, mais garde le comportement aligne sur pre-commit.
+m=$(grep -nEI -f "$patfile" "$1" 2>/dev/null)
+if [ -n "$m" ]; then
+  echo "" >&2
+  echo "COMMIT REFUSE -- tell(s) detecte(s) dans le MESSAGE du commit :" >&2
+  printf '%s\n' "$m" | sed 's/^/    /' >&2
+  echo "" >&2
+  echo "Reecris le message : il entre dans l'historique git et part sur GitHub." >&2
+  exit 1
+fi
+exit 0

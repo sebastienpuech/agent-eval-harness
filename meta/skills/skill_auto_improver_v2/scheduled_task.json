@@ -1,0 +1,15 @@
+{
+  "_note": "SPEC de la tache planifiee nocturne -- NON ENREGISTREE. Le cron ne doit etre cree que lorsque la passe tourne de bout en bout (mining reel + git reel, Session 6), et depuis une session INTERACTIVE (creer un cron = modif systeme persistante). Ici : la definition, prete a etre enregistree via scheduled-tasks MCP ou le Planificateur de taches Windows.",
+  "name": "skill-auto-improver-v2-nightly",
+  "status": "NON_ENREGISTREE",
+  "activer_en": "Session 6 (apres cablage ProdMcpSource + git reel)",
+  "schedule": {"cron": "0 3 * * *", "tz": "<ta-timezone>", "_tz": "IANA (ex. Europe/Berlin, America/New_York) ; a defaut, le fuseau local de la machine convient : la tache est locale.", "description": "chaque nuit a 03:00"},
+  "command": "python lib/orchestrator.py --skill skill-jugement --run",
+  "cwd": "<racine-skills>/meta/skills/skill_auto_improver_v2",
+  "garde_fous": {
+    "idle_only": true,
+    "budgets": {"MAX_SESSIONS_MINED_PER_RUN": 50, "MAX_SUBAGENT_CALLS_PER_RUN": 120, "MAX_WALLCLOCK_SECONDS": 2700},
+    "human_in_the_loop": "la passe ecrit seulement proposals/_A_VALIDER.md ; aucune ecriture live sans 'oui'"
+  },
+  "sortie_attendue": "proposals/<skill>/<date>/ + une ligne dans proposals/_A_VALIDER.md"
+}

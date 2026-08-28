@@ -1,0 +1,9 @@
+{
+  "_note": "FIXTURE : amelioration PROPRE. Un fix qui monte les cas de retour SANS regresser le held-out. Attendu : ship=true.",
+  "signal": "matrice_deterministe",
+  "holdout": {
+    "C67": {"avant": 0.80, "apres": 0.90},
+    "C41": {"avant": 0.70, "apres": 0.70},
+    "C75": {"avant": 0.90, "apres": 0.95}
+  }
+}

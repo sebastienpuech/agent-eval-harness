@@ -1,0 +1,13 @@
+# Modele. Copier en .githooks/denylist.local.txt (gitignore) et y mettre TES motifs.
+# Un motif par ligne : ERE, applique SENSIBLE A LA CASSE au contenu indexe, a l'identite
+# de l'auteur (pre-commit) et au message du commit (commit-msg).
+#
+# Sensible a la casse VOLONTAIREMENT. Un motif court en majuscules -- un code interne, un
+# acronyme maison -- redevient un mot courant des qu'on ignore la casse : le hook se met a
+# refuser des commits legitimes, et on prend le reflexe de le contourner. Un garde-fou
+# contourne par reflexe ne protege plus rien.
+# Corollaire : un motif qui doit tolerer les deux casses porte sa propre classe.
+#   [Mm]onmotif   plutot que   monmotif
+#
+# Ne JAMAIS versionner le fichier .local : il liste ce que tu caches, donc il le revele.
+# Ce modele reste volontairement vague pour la meme raison.

@@ -1,0 +1,14 @@
+{
+  "_note": "Fixture GOLDEN synthétique (aucune PII, skill-conseil jouet générique de revue technique : quelqu'un décrit ce qu'il vient de faire, le skill répond). Prouve la voie posture : sur une situation WARRANTÉE, un fix bien dosé soulève le levier (gain) ; sur le TÉMOIN (question fermée), il NE sur-élargit pas. La variante 'overwiden' élargit partout -> doit être refusée.",
+  "mission": "aider l'auteur a tenir son objectif d'architecture Z",
+  "warrante": {
+    "baseline": {"output": "Ok, c'est note.", "context": "levier_attendu=X | situation warrantee"},
+    "patched":  {"output": "Vu ton objectif Z, pense aussi a l'angle X ici, concret et lie a ta situation.", "context": "levier_attendu=X | situation warrantee"},
+    "overwiden":{"output": "Vu ton objectif Z, pense aussi a l'angle X, concret et lie a ta situation.", "context": "levier_attendu=X | situation warrantee"}
+  },
+  "temoin": {
+    "baseline": {"output": "Oui, la commande est bonne.", "context": "levier_attendu=aucun | situation fermee"},
+    "patched":  {"output": "Oui, la commande est bonne.", "context": "levier_attendu=aucun | situation fermee"},
+    "overwiden":{"output": "Oui, la commande est bonne, et pense aussi a l'angle X, l'angle Y, vu ton objectif Z globalement.", "context": "levier_attendu=aucun | situation fermee"}
+  }
+}

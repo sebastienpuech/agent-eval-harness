@@ -1,0 +1,23 @@
+{
+  "_note": "FIXTURE SYNTHETIQUE (non sensible) pour prouver la MACHINERIE de correlation juge<->gout. N'EST PAS le gout reel de l'utilisateur : sur le corpus jugement reel, la calibration reste NON_ANCREE tant que l'utilisateur n'a pas note >=8 cas. 'aligned' -> rho>=0.6 (calibrable) ; 'misaligned' -> rho<0.6 (non calibrable).",
+  "aligned": [
+    {"case": "s1", "grid_total": 6,  "taste": 1},
+    {"case": "s2", "grid_total": 7,  "taste": 2},
+    {"case": "s3", "grid_total": 8,  "taste": 3},
+    {"case": "s4", "grid_total": 9,  "taste": 3},
+    {"case": "s5", "grid_total": 10, "taste": 4},
+    {"case": "s6", "grid_total": 10, "taste": 4},
+    {"case": "s7", "grid_total": 11, "taste": 5},
+    {"case": "s8", "grid_total": 12, "taste": 5}
+  ],
+  "misaligned": [
+    {"case": "m1", "grid_total": 6,  "taste": 4},
+    {"case": "m2", "grid_total": 7,  "taste": 1},
+    {"case": "m3", "grid_total": 8,  "taste": 5},
+    {"case": "m4", "grid_total": 9,  "taste": 2},
+    {"case": "m5", "grid_total": 10, "taste": 1},
+    {"case": "m6", "grid_total": 10, "taste": 5},
+    {"case": "m7", "grid_total": 11, "taste": 2},
+    {"case": "m8", "grid_total": 12, "taste": 3}
+  ]
+}

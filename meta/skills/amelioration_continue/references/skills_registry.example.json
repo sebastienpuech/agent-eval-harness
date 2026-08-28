@@ -1,0 +1,8 @@
+{
+  "_doc": "Registre EXEMPLE neutre : il montre la FORME d'une entrée, il ne pointe vers aucune cible réelle. Les chemins demo/ ci-dessous ne sont PAS livrés (l'arbre demo/ des skills cibles reste privé) — recopie cette forme en visant tes propres skills, et pointe AMELIORE_REGISTRY (dans .env) vers le registre ainsi obtenu, qui vit hors de ce dépôt. Chaque entrée : live_path_rel (relatif à SKILLS_ROOT), corpus_rel (ratés à étudier, headers only), golden_cmd optionnel (liste d'args avec {skill_md} -> imprime {\"pass_rate\": float} ; sans lui, non-régression NON vérifiée automatiquement).",
+  "demo-revue": {
+    "live_path_rel": "demo/skills/demo-revue/SKILL.md",
+    "corpus_rel": "demo/skills/demo-revue/data/cases.jsonl",
+    "golden_cmd": ["python", "demo/skills/demo-revue/tests/run_golden.py", "{skill_md}"]
+  }
+}

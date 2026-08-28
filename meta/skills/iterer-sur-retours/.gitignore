@@ -1,0 +1,9 @@
+# Artefacts generes (rejouables) -- pas dans le versionnage.
+# registry.yaml + holdout.txt : ecrits par split_holdout.py (regenerables)
+signal/
+# note-taking par batch (classification_partielle_*, observabilite)
+.iter/
+memory/engine_access.log
+memory/interactions.jsonl
+__pycache__/
+*.pyc

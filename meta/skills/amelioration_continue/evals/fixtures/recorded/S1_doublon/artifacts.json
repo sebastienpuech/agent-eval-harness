@@ -1,0 +1,9 @@
+{
+  "_bootstrap": "SEED hand-authored en Session 1 (run_chain absent avant S3). A REGENERER par un run capability vert en Session 5 (doctrine chicken-egg spec §10ter). Represente les artefacts finaux ATTENDUS d'une passe S1 correcte.",
+  "type_itere": "regle_detecteur",
+  "statut": "propose",
+  "proposals_emitted": 1,
+  "ship": true,
+  "telegram_message": "🔧 demo-revue — proposition ac_seed1\nQUOI : Garde-fou anti-redite : relire le fil avant tout draft.\nPOURQUOI : 1 rate mine (fil de revue du 07/07) : draft doublon d'une reponse deja postee.\nDELTA : held-out 3/3 stable, cas cite corrige, 0 regression.\nVALIDER : oui ac_seed1 (ou reponds a ce message) / non <raison>.",
+  "live_mtime_unchanged": true
+}

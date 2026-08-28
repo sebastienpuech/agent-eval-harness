@@ -1,0 +1,25 @@
+{
+  "_note": "FIXTURE PLANTEE : la 2e preuve est une citation INVENTEE (absente des resumes) -> le failure_mode doit etre REJETE par verify_citations -> ratio_ancrees < 1.0. Prouve que le garde-fou attrape une preuve fantoche.",
+  "from": "diagnosticien", "to": "rewriter", "run_id": "s3-plante",
+  "payload": {
+    "skill": "skill-jugement",
+    "failure_modes": [
+      {
+        "nom": "keyword-spotting : la reponse rate ce que le commentaire voulait dire",
+        "gravite": "majeur",
+        "preuve": [
+          {"session_id": "fixt-sj-rate-01", "citation": "l'utilisateur reecrit lui-meme la reponse proposee"}
+        ],
+        "frequence": 1
+      },
+      {
+        "nom": "reponses proposees systematiquement trop longues (invente)",
+        "gravite": "majeur",
+        "preuve": [
+          {"session_id": "fixt-sj-rate-02", "citation": "les reponses proposees font toujours plus de vingt mots"}
+        ],
+        "frequence": 3
+      }
+    ]
+  }
+}

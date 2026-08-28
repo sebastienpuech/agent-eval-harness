@@ -1,0 +1,3 @@
+{"call": "run_pass", "skill": "demo-revue", "max_iter": 3}
+{"call": "regression_gate", "cwd": "ITERER_PATH"}
+{"call": "telegram_send", "chat_id": "<whitelist>", "run_id": "ac_seed1"}

@@ -1,0 +1,7 @@
+{
+  "_bootstrap": "SEED hand-authored en Session 1 (run_chain absent). A REGENERER par capability en S5. Cas : passe vide (aucun rate mine) -> silence total, 0 message Telegram (transport mocke).",
+  "statut": "rien-a-faire",
+  "proposals_emitted": 0,
+  "rates_mines": 0,
+  "live_mtime_unchanged": true
+}

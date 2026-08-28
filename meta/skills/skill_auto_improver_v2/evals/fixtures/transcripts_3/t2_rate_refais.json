@@ -1,0 +1,20 @@
+{
+  "_note": "FIXTURE SYNTHETIQUE anonymisee. Rate attendu : signal 'refais' / 'bof_explicite' -- l'utilisateur rejette explicitement et demande une autre proposition.",
+  "session_id": "fixt-sj-rate-02",
+  "status": "idle",
+  "skill": "skill-jugement",
+  "messages": [
+    {
+      "role": "user",
+      "text": "commentaire de revue : elle detaille comment leur equipe a bascule l'outil de suivi sans coupure de service. Ecris la reponse."
+    },
+    {
+      "role": "assistant",
+      "text": "Reponse proposee : 'Belle demarche, c'est vraiment tres bien mene !'"
+    },
+    {
+      "role": "user",
+      "text": "bof, ca fait generique et un peu IA. refais, rebondis sur la bascule sans coupure qu'elle vient de decrire stp."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "cid": "ho_01_reprise_taf",
+  "input": {
+    "situation": "le relecteur revient sur le rebase de la semaine derniere",
+    "sent_by_user": [
+      "Ce rebase sur main apres trois semaines de branche a du etre penible"
+    ]
+  },
+  "recorded": {
+    "avant": "Ce rebase sur main apres des semaines de branche a du etre vraiment penible",
+    "apres": "Tu attaques par quel bout, le cadrage ou les tests"
+  },
+  "note": "avant = ANCIEN skill (re-genere un doublon de la reponse deja postee -> detecteur FIRE -> 0) ; apres = NOUVEAU skill avec garde-fou (message distinct -> no_fire -> 1). delta attendu +1."
+}

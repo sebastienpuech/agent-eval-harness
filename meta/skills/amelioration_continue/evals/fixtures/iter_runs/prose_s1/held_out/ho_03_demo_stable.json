@@ -1,0 +1,14 @@
+{
+  "cid": "ho_03_demo_stable",
+  "input": {
+    "situation": "il parle de la demo prevue vendredi",
+    "sent_by_user": [
+      "Tu montres quoi vendredi, le parcours complet ou juste l'inscription"
+    ]
+  },
+  "recorded": {
+    "avant": "Une demo vendredi, tu presentes avec qui et devant quelle equipe",
+    "apres": "Si la demo passe bien tu me diras, j'ai toujours zero idee de ce qu'on montre aux clients"
+  },
+  "note": "cas de STABILITE : ni avant ni apres ne doublonnent -> 1 et 1 -> delta 0. Prouve regression_suite=1.0 (aucune regression), pas juste un gain moyen."
+}

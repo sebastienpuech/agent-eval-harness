@@ -1,0 +1,9 @@
+{
+  "_bootstrap": "SEED S3 : branche PROSE (S1 doublon). le cas jugement forke jugement globalement mais CE retour est un regle_detecteur (famille B) -> route prose (routage par retour, pas par skill).",
+  "regime": "jugement",
+  "part_oracle_mecanique": 0.15,
+  "n_retours_normalises": 1,
+  "familles": {"B": 1},
+  "items": [{"feedback_id": "s1_doublon", "famille": "B", "type_itere": "regle_detecteur"}],
+  "degraded": false
+}

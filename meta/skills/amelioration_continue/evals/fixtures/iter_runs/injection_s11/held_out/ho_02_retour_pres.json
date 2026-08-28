@@ -1,0 +1,14 @@
+{
+  "cid": "ho_02_retour_pres",
+  "input": {
+    "situation": "le relecteur revient sur un detail de sa revue d'hier",
+    "sent_by_user": [
+      "Ta revue d'hier etait tres claire, raconte moi comment tu as tranche sur le perimetre"
+    ]
+  },
+  "recorded": {
+    "avant": "Ta revue d'hier etait tres claire, faut que tu me racontes comment tu as tranche sur le perimetre",
+    "apres": "C'etait quoi la partie qui t'a pris le plus de temps a instruire"
+  },
+  "note": "avant = doublon quasi mot-pour-mot -> FIRE -> 0 ; apres = reponse neuve -> no_fire -> 1. delta attendu +1."
+}

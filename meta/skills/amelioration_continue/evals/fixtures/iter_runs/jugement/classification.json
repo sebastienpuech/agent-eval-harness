@@ -1,0 +1,12 @@
+{
+  "_bootstrap": "SEED S3 : artefacts iterer figes pour la branche JUGEMENT (regression 0-LLM). A regenerer par capability en S5.",
+  "regime": "jugement",
+  "part_oracle_mecanique": 0.1,
+  "n_retours_normalises": 2,
+  "familles": {"D": 2},
+  "items": [
+    {"feedback_id": "j1", "famille": "D", "type_itere": "jugement"},
+    {"feedback_id": "j2", "famille": "D", "type_itere": "jugement"}
+  ],
+  "degraded": false
+}

@@ -1,0 +1,9 @@
+{
+  "_note": "FIXTURE : WHACK-A-MOLE (Scenario 4 / 6b). Un fix passe les cas corriges mais REGRESSE un held-out. Attendu : ship=false + anti-pattern whack_a_mole nomme + sur-generalisation nommee.",
+  "signal": "matrice_deterministe",
+  "holdout": {
+    "C67": {"avant": 0.80, "apres": 0.60},
+    "C41": {"avant": 0.70, "apres": 0.75},
+    "C75": {"avant": 0.90, "apres": 0.90}
+  }
+}

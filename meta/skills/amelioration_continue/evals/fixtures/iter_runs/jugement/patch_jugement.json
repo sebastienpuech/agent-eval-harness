@@ -1,0 +1,7 @@
+{
+  "titre": "Profondeur alignee (principe, pas case-a-cocher)",
+  "principe": "Aligne la profondeur de la reponse sur celle du commentaire : un commentaire laconique appelle une reponse breve, un commentaire qui argumente son objection merite une reponse argumentee. Le POURQUOI prime sur la regle mecanique.",
+  "exemple_contraste": "❌ trois paragraphes en reponse a un commentaire de six mots -> ✅ reponse detaillee seulement si le commentaire a lui-meme detaille son raisonnement (resume, 0 verbatim).",
+  "quoi": "Convertir une regle figee en principe + exemple contraste.",
+  "pourquoi": "Retour jugement mine ; grille iterer mesure un gain sur held-out."
+}

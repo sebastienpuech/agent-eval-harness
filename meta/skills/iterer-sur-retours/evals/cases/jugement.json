@@ -1,0 +1,26 @@
+{
+  "id": "jugement",
+  "skill_cible": "skill-jugement+demo-revue",
+  "repo_pointer": [
+    "demo/skills/skill-jugement",
+    "demo/skills/demo-revue"
+  ],
+  "scenario_ref": "spec_produit.md § Scénario 2 (cas jugement)",
+  "regime_attendu": "jugement",
+  "retours": {
+    "format_origine": [
+      "jsonl-header-prose",
+      "tags-binaires"
+    ],
+    "corpus_pointer": "demo/skills/demo-revue/data/cases.jsonl",
+    "assertions_deterministes": "demo/skills/demo-revue/tests/assertions.yaml",
+    "note": "Issue decrite en prose dans le header de chaque cas + tags binaires (retenu/reecrit). Le contexte et les messages du fil ne sont jamais copies ici : seul le header sort."
+  },
+  "held_out": {
+    "min": 15,
+    "note": "≥15 cas varies reserves a la mesure ; correlation juge<->gout sur ≥8 cas notes par l'utilisateur."
+  },
+  "signal_attendu": "juge_par_grille",
+  "statut": "V1.1 -- traite APRES validation du routeur sur le factuel (tableur). Cas-graine annote des maintenant (Session 1) pour la non-regression binaire.",
+  "pii": "un fil de revue n'est pas anonyme : noms d'auteurs, @handles, URL internes -- lint anti-PII obligatoire sur grid_scores.json (justif = critere+score, jamais de verbatim)."
+}

@@ -1,0 +1,19 @@
+{
+  "_note": "FIXTURE GOLDEN synthetique (non sensible) refletant la distribution CONNUE du corpus jugement : majorite famille D (jugement, pas d'oracle mecanique) -> fork=jugement, part_oracle<=0.2. Garde-fou du cas-graine. N'est PAS le corpus reel (PII).",
+  "skill_cible": "skill-jugement+demo-revue",
+  "n_retours_normalises": 12,
+  "items": [
+    {"id": "jugement-01", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-02", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-03", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-04", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-05", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-06", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-07", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-08", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-09", "famille": "D", "type": "jugement",            "regle_cible": null},
+    {"id": "jugement-10", "famille": "A", "type": "contrainte_dure",     "regle_cible": "reponse_len_words"},
+    {"id": "jugement-11", "famille": "C", "type": "bloque_input_externe", "regle_cible": null},
+    {"id": "jugement-12", "famille": "D", "type": "jugement",            "regle_cible": null}
+  ]
+}

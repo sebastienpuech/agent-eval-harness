@@ -1,0 +1,30 @@
+{
+ "_note": "Evals pour skill-auto-improver. Held-out EXCLU. Le cas 'sous-comptage' est un exemple synthetique de la classe de defaut (sur-feu du detecteur sur une colonne qui ne mesure qu'un SOUS-ENSEMBLE, pas le total).",
+ "critical_checks": [
+  {
+   "id": "bins_fire_C21",
+   "case": "C21",
+   "check": "duree_dist non vide ET colonne source = duree TOTALE du build ('duree'/'Duree totale du build')"
+  },
+  {
+   "id": "bins_fire_C32",
+   "case": "C32",
+   "check": "duree_dist non vide ET colonne source contient 'Total build duration'"
+  },
+  {
+   "id": "bins_pas_de_sur_feu_sous_comptage",
+   "case": "synthetique",
+   "check": "un dataset dont la SEULE colonne candidate est 'Duree de l'etape de checkout, si presente' (mesure d'un SOUS-ENSEMBLE) NE DOIT PAS produire de duree_dist — la duree d'une seule etape n'est pas la duree du build"
+  },
+  {
+   "id": "codes_internes_absents",
+   "case": "C21",
+   "check": "aucun prefixe de code interne (AA1/BB2/CC3) dans les titres rendus"
+  },
+  {
+   "id": "placeholders_absents",
+   "case": "C21",
+   "check": "aucun jeton '[a completer' dans le HTML rendu (lint todo_placeholder = 0)"
+  }
+ ]
+}

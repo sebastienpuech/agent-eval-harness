@@ -1,0 +1,2 @@
+{"_note": "S4 : ce diagnostic INJECTE laisse fuiter un jeton du golden (profondeur_alignee = check du golden_sealed construit par le bridge) dans le contexte rewriter -> assert_no_golden_leak fire -> isolation-violation.",
+ "failure_modes": [{"nom": "le rewriter verrait profondeur_alignee du golden", "gravite": "majeur"}]}

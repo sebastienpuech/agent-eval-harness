@@ -1,0 +1,26 @@
+{
+  "_note": "Cle attendue exacte du meta-golden-set (data_model.md 4). READ-ONLY pour le moteur : sert a VERIFIER les artefacts produits, jamais a regler une regle. A 2 cas = non-regression binaire (spec 10bis), PAS une mesure de generalisation (seuil n>=5).",
+  "tableur": {
+    "id": "tableur",
+    "skill_cible": "skill-tableur-demo",
+    "regime_attendu": "factuel",
+    "part_oracle_min": 0.5,
+    "holdout_doit_exclure": ["C21", "C32"],
+    "signal_attendu": "matrice_deterministe",
+    "g2_factuel_ecrit_0_patch_code": true,
+    "produit_contrat": "auto_improver_call.json",
+    "types_attendus": {"A": ">=5", "B": ">=1", "C": ">=1"}
+  },
+  "jugement": {
+    "id": "jugement",
+    "skill_cible": "skill-jugement+demo-revue",
+    "regime_attendu": "jugement",
+    "signal_attendu": "juge_par_grille",
+    "holdout_min": 15,
+    "n_rerun_min": 3,
+    "attend_reduction_de_regles": true,
+    "attend_exemples_contrastes": true,
+    "calibration_bloquante": true,
+    "rho_min": 0.6
+  }
+}

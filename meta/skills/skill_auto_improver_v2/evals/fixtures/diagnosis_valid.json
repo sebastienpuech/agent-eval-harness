@@ -1,0 +1,25 @@
+{
+  "_note": "FIXTURE GOLDEN : diagnosis conforme. Les 2 citations sont des substrings EXACTS des resumes des Rates fixtures (fixt-sj-rate-01/02, produits par extractor sur transcripts_3). session_id dans l'index, signal dans le lexique -> ratio_ancrees=1.0.",
+  "from": "diagnosticien", "to": "rewriter", "run_id": "s3-golden",
+  "payload": {
+    "skill": "skill-jugement",
+    "failure_modes": [
+      {
+        "nom": "keyword-spotting : la reponse rate ce que le commentaire voulait dire",
+        "gravite": "majeur",
+        "preuve": [
+          {"session_id": "fixt-sj-rate-01", "citation": "l'utilisateur reecrit lui-meme la reponse proposee"}
+        ],
+        "frequence": 1
+      },
+      {
+        "nom": "proposition generique rejetee",
+        "gravite": "mineur",
+        "preuve": [
+          {"session_id": "fixt-sj-rate-02", "citation": "l'utilisateur rejette la proposition et en demande une autre"}
+        ],
+        "frequence": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "couple_id": "meta-ho-1",
+  "skill_cible": "autre-skill-demo",
+  "repo_pointer": "chemin/vers/autre-skill-demo",
+  "distinct_de": ["tableur", "jugement"],
+  "retours_corpus": "A ATTACHER quand la boucle 11 s'arme (n>=5). Slot reserve, aucun corpus copie ici.",
+  "invariant": "case appartient a meta_holdout => JAMAIS lu par skill-auto-improver ni par aucune passe de patch. Charge UNIQUEMENT par la suite regression du meta-golden-set.",
+  "enforcement": "self_diagnosis.py : (a) meta_holdout/ non vide, (b) aucun fichier de meta_holdout/ dans memory/engine_access.log.",
+  "statut_v1": "reserve -- boucle 11 desarmee, aucun run moteur."
+}

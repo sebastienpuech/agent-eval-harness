@@ -1,0 +1,27 @@
+{
+  "_note": "FIXTURE synthetique (non sensible) : rejeux N=3 du juge-par-grille sur des VARIANTES de sortie. Aucun extrait de corpus reel. Sert a prouver 6a (coherente - fragmentee >= 3) et 6b (fix qui regresse un held-out). Criteres data_model GridScore, chacun 0-2.",
+  "criteres": ["justesse_du_ton", "ancrage_concret", "absence_vibe_ia",
+               "pertinence", "clarte", "concision"],
+  "variantes": {
+    "coherente": {"kind": "6a", "runs": [
+      {"justesse_du_ton": 2, "ancrage_concret": 2, "absence_vibe_ia": 2, "pertinence": 2, "clarte": 2, "concision": 1},
+      {"justesse_du_ton": 2, "ancrage_concret": 2, "absence_vibe_ia": 2, "pertinence": 2, "clarte": 1, "concision": 2},
+      {"justesse_du_ton": 2, "ancrage_concret": 2, "absence_vibe_ia": 2, "pertinence": 2, "clarte": 2, "concision": 1}
+    ]},
+    "fragmentee": {"kind": "6a", "runs": [
+      {"justesse_du_ton": 1, "ancrage_concret": 1, "absence_vibe_ia": 1, "pertinence": 2, "clarte": 1, "concision": 1},
+      {"justesse_du_ton": 1, "ancrage_concret": 1, "absence_vibe_ia": 1, "pertinence": 1, "clarte": 1, "concision": 2},
+      {"justesse_du_ton": 2, "ancrage_concret": 1, "absence_vibe_ia": 1, "pertinence": 1, "clarte": 1, "concision": 1}
+    ]},
+    "holdout_avant": {"kind": "6b", "runs": [
+      {"justesse_du_ton": 2, "ancrage_concret": 2, "absence_vibe_ia": 1, "pertinence": 2, "clarte": 1, "concision": 1},
+      {"justesse_du_ton": 2, "ancrage_concret": 1, "absence_vibe_ia": 2, "pertinence": 2, "clarte": 1, "concision": 1},
+      {"justesse_du_ton": 2, "ancrage_concret": 2, "absence_vibe_ia": 1, "pertinence": 2, "clarte": 1, "concision": 1}
+    ]},
+    "holdout_apres_whack": {"kind": "6b", "runs": [
+      {"justesse_du_ton": 1, "ancrage_concret": 1, "absence_vibe_ia": 1, "pertinence": 2, "clarte": 1, "concision": 0},
+      {"justesse_du_ton": 1, "ancrage_concret": 1, "absence_vibe_ia": 1, "pertinence": 1, "clarte": 1, "concision": 1},
+      {"justesse_du_ton": 1, "ancrage_concret": 1, "absence_vibe_ia": 1, "pertinence": 2, "clarte": 1, "concision": 0}
+    ]}
+  }
+}

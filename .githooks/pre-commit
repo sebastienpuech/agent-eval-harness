@@ -1,0 +1,44 @@
+#!/bin/sh
+# pre-commit fail-closed. Les motifs vivent dans .githooks/denylist.local.txt (GITIGNORE : la
+# liste des tells ne doit jamais entrer dans l'historique -- c'est la carte du tresor).
+# Pas d'exemption de dossier : TOUT fichier stage est scanne (y compris .githooks/).
+#
+# Perimetre de CE hook : contenu indexe + identite auteur/committer. Le MESSAGE du commit est
+# scanne par `.githooks/commit-msg` : un hook pre-commit ne recoit aucun argument et ne peut
+# donc pas le lire. Les deux hooks partagent `_denylist.sh` pour que la regle fail-closed ne
+# puisse pas deriver entre eux.
+HOOK_DIR=$(dirname "$0")
+. "$HOOK_DIR/_denylist.sh"
+
+patfile=$(mktemp); hits=$(mktemp); filelist=$(mktemp); hdr=$(mktemp)
+trap 'rm -f "$patfile" "$hits" "$filelist" "$hdr"' EXIT
+load_denylist "$patfile" || exit 1
+git diff --cached --name-only --diff-filter=ACM > "$filelist"
+
+while IFS= read -r f; do
+  [ -n "$f" ] || continue
+  m=$(git show ":$f" 2>/dev/null | grep -nEI -f "$patfile" 2>/dev/null)
+  if [ -n "$m" ]; then
+    printf '\n  %s\n' "$f" >> "$hits"
+    printf '%s\n' "$m" | sed 's/^/    /' >> "$hits"
+  fi
+done < "$filelist"
+
+# --- identite : auteur/committer partent sur GitHub eux aussi.
+{ git var GIT_AUTHOR_IDENT; git var GIT_COMMITTER_IDENT; } > "$hdr" 2>/dev/null
+m=$(grep -nEI -f "$patfile" "$hdr" 2>/dev/null)
+if [ -n "$m" ]; then
+  echo "" >&2; echo "COMMIT REFUSE -- tell(s) dans l'IDENTITE du commit :" >&2
+  printf '%s\n' "$m" | sed 's/^/    /' >&2
+  echo "Corrige : git config user.name / user.email dans CE depot." >&2; exit 1
+fi
+
+if [ -s "$hits" ]; then
+  echo "" >&2
+  echo "COMMIT REFUSE -- tell(s) detecte(s) dans le contenu stage :" >&2
+  cat "$hits" >&2
+  echo "" >&2
+  echo "Ce depot est 'ne public' : aucun tell ne doit entrer dans l'historique git." >&2
+  exit 1
+fi
+exit 0

@@ -1,0 +1,10 @@
+{
+  "skill_path": "/abs/demo/skills/demo-revue",
+  "evals_file": "generated_evals.json",
+  "test_case_ids": ["C21", "C32"],
+  "holdout_case_ids": ["C67", "C41"],
+  "regles_a_detecteur": [{"id": "doublon", "detecteur": "doublon.py",
+                          "attendu_par_cas": {"C21": "fire", "C32": "fire"}}],
+  "max_iter": 5,
+  "delegation_status": "VERIFIE_V2"
+}
