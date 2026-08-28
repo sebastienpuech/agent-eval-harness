@@ -102,7 +102,8 @@ This section exists because a repository that only lists its strengths is not ev
   is a destination as much as a description.
 - **Two adapters are not wired.** The chain defaults to a mock git implementation
   (`run_chain.py:277`), so the keep-or-revert step runs against a stand-in rather than a real
-  repository. Mining real sessions raises `NotImplementedError` (`extractor.py:110`), so feedback
+  repository. Mining real sessions raises `NotImplementedError` (`extractor.py:116` and `:119`,
+  in the `ProdMcpSource` class declared at `:110`), so feedback
   has to be supplied rather than harvested. Both are marked in the source as deferred work, and
   both matter more than the missing cost figures: they sit under the headline claim that a bad
   patch gets reverted.

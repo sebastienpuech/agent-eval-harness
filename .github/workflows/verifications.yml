@@ -1,0 +1,45 @@
+# Les trois suites annoncees dans le README, rejouees a chaque push et sur chaque PR.
+#
+# Pourquoi ce fichier existe : le README dit "run them and disagree with the numbers".
+# Tant que les suites ne tournaient qu'a la main sur la machine de l'auteur, cette phrase
+# reposait sur sa parole. Ici elles tournent sur une machine qu'il ne controle pas, et
+# l'echec est public.
+name: verifications
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  suites:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 3.10 est le plancher annonce par requirements.txt et n'avait jamais ete teste :
+        # cette matrice repond a la reserve ecrite dans ce meme fichier.
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Dependances
+        run: pip install -r requirements.txt
+
+      - name: Golden META (skill_auto_improver_v2)
+        working-directory: meta/skills/skill_auto_improver_v2
+        run: python lib/meta_runner.py
+
+      - name: Meta-golden (iterer-sur-retours)
+        working-directory: meta/skills/iterer-sur-retours
+        run: python scripts/run_meta_golden.py
+
+      - name: Suite pytest (amelioration_continue)
+        working-directory: meta/skills/amelioration_continue
+        run: python -m pytest tests/ -q
