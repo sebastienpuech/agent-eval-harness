@@ -1,5 +1,7 @@
 # agent-eval-harness
 
+[![verifications](https://github.com/sebastienpuech/agent-eval-harness/actions/workflows/verifications.yml/badge.svg)](https://github.com/sebastienpuech/agent-eval-harness/actions/workflows/verifications.yml)
+
 *(Version française : [README.fr.md](README.fr.md))*
 
 A continuous-improvement engine for agent skills that **refuses its own patches when they

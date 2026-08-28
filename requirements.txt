@@ -1,8 +1,9 @@
 # Dependances necessaires pour relancer les trois suites de verification du README.
 #   pip install -r requirements.txt
 #
-# Python : plancher annonce 3.10. Tout a ete lance et verifie sur 3.12.10 uniquement ;
-# aucune version inferieure n'a ete testee.
+# Python : plancher 3.10. Les trois suites tournent en integration continue sur 3.10 ET 3.12
+# a chaque push (.github/workflows/verifications.yml) ; le plancher est donc verifie, plus
+# seulement annonce. En dessous de 3.10 : non teste.
 
 pytest>=7.0     # suite `amelioration_continue` : python -m pytest tests/
 PyYAML>=6.0     # `iterer-sur-retours` : import module-level dans scripts/build_contract.py

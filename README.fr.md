@@ -1,5 +1,7 @@
 # agent-eval-harness
 
+[![verifications](https://github.com/sebastienpuech/agent-eval-harness/actions/workflows/verifications.yml/badge.svg)](https://github.com/sebastienpuech/agent-eval-harness/actions/workflows/verifications.yml)
+
 *(English version: [README.md](README.md))*
 
 Un moteur d'amélioration continue pour skills d'agents qui **refuse ses propres correctifs
