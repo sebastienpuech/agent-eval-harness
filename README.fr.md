@@ -84,8 +84,8 @@ cd meta/skills/amelioration_continue  && python -m pytest tests/ -q
 - **Le golden META passe tous ses portails**, dont `G8_anti_gaming`, `G9_circuit_breaker`,
   `G11_confidentialite`, `G12_golden_holdout`, `G13_judge_calibration`, `G16_red_team`.
   `G13` est plus étroit que son nom : il prouve que la mesure d'accord distingue une fixture
-  calibrée d'une qui ne l'est pas. Aucun jeu annoté par des humains n'y est passé, donc le juge
-  lui-même reste non prouvé. Voir plus bas.
+  calibrée d'une qui ne l'est pas. Le juge lui-même a depuis été confronté à un annotateur
+  humain, et le chiffre est bas. Voir plus bas.
 
 Les portails sont du Python déterministe, pas des appels au modèle. Compter, dédupliquer,
 valider un format et vérifier une régression sont des tâches mécaniques ; les confier à un
@@ -95,10 +95,16 @@ modèle de langage ajoute du coût et de la variance pour rien.
 
 Cette section existe parce qu'un dépôt qui ne liste que ses forces n'est pas une preuve.
 
-- **Le juge est gelé, pas étalonné.** Sa grille est figée pour que les runs restent comparables,
-  mais elle n'a jamais été confrontée à des annotateurs humains. Tant que ce chiffre n'existe
-  pas, toute mesure de qualité produite ici est cohérente en interne et non prouvée en externe.
-  L'établir est le prochain chantier, et le résultat sera publié quel qu'il soit.
+- **Le juge est gelé, et son étalonnage est faible.** Sa grille est figée pour que les runs
+  restent comparables. Le 23/09/2026 elle a été confrontée à un annotateur humain sur 40 paires
+  de réponses courtes (trois domaines, aucun de revue de code) : kappa de Cohen **0,27**,
+  IC95 [0,05 ; 0,49], trois classes (A / B / égales). Le même modèle, posé la même question
+  sans grille, obtient 0,31 sur le même jeu. La cause première est mesurée, pas devinée : la
+  grille sature (45 réponses sur 80 à 12/12), elle ne sépare pas deux réponses toutes deux
+  bonnes. Un annotateur, 40 paires, un intervalle large : c'est une première mesure, pas un
+  verdict, et elle est publiée comme promis, quel que soit le chiffre. Tant que la grille ne
+  sépare pas mieux, toute mesure de qualité produite ici est cohérente en interne et faible en
+  externe.
 - **La mesure tourne en mode `recorded`.** Les sorties des cas réservés sont figées dans des
   fixtures, ce qui rend la suite déterministe et sans appel au modèle. Le mode `live`, où le
   skill cible est réellement exécuté sur chaque cas, est différé. La note honnête est dans le

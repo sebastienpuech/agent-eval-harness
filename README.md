@@ -80,8 +80,8 @@ cd meta/skills/amelioration_continue  && python -m pytest tests/ -q
 - **The golden META passes every gate**, among them `G8_anti_gaming`, `G9_circuit_breaker`,
   `G11_confidentialite`, `G12_golden_holdout`, `G13_judge_calibration`, `G16_red_team`.
   `G13` is narrower than its name suggests: it proves the agreement measure tells a calibrated
-  fixture from an uncalibrated one. No human-annotated set has been through it, so the judge
-  itself stays unproven. See below.
+  fixture from an uncalibrated one. The judge itself has since been scored against one human
+  annotator, and the number is low. See below.
 
 The gates are deterministic Python, not model calls. Counting, deduplicating, validating a
 format and checking a regression are mechanical jobs; asking a language model to do them adds
@@ -91,10 +91,15 @@ cost and variance for nothing.
 
 This section exists because a repository that only lists its strengths is not evidence.
 
-- **The judge is frozen, not calibrated.** Its grid is fixed so that runs stay comparable, but
-  it has never been scored against human annotators. Until that number exists, every quality
-  figure produced here is internally consistent and externally unproven. Measuring it is the
-  next piece of work, and the result gets published whatever it says.
+- **The judge is frozen, and its calibration is weak.** Its grid is fixed so that runs stay
+  comparable. On 2026-09-23 it was scored against one human annotator on 40 pairs of short
+  replies (three domains, none of them code review): Cohen's kappa **0.27**, 95 % CI
+  [0.05 ; 0.49], three classes (A / B / equal). The same model asked the same question with no
+  grid scores 0.31 on the same set. The main cause is measured, not guessed: the grid saturates
+  (45 of 80 replies score 12/12), so it cannot separate two replies that are both good. One
+  annotator, 40 pairs, a wide interval: this is a first measurement, not a verdict, and it was
+  published as promised, whatever it said. Until the grid separates better, every quality
+  figure produced here is internally consistent and externally weak.
 - **Measurement runs in `recorded` mode.** Held-out outputs are frozen in fixtures, which makes
   the suite deterministic and free of model calls. The `live` mode, where the target skill is
   actually run on each case, is deferred. The honest note sits in the source itself, at the top
