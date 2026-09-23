@@ -1,0 +1,247 @@
+{
+  "seed": 20260924,
+  "ordre_des_cas": [
+    "P-13",
+    "O-12",
+    "O-03",
+    "P-05",
+    "C-14",
+    "O-06",
+    "O-07",
+    "P-11",
+    "P-10",
+    "P-04",
+    "C-05",
+    "O-05",
+    "C-06",
+    "C-13",
+    "O-13",
+    "O-02",
+    "P-12",
+    "C-03",
+    "O-09",
+    "O-08",
+    "C-07",
+    "C-09",
+    "C-02",
+    "P-06",
+    "C-08",
+    "P-03",
+    "O-01",
+    "C-12",
+    "C-11",
+    "P-07",
+    "O-11",
+    "P-02",
+    "O-10",
+    "O-04",
+    "P-01",
+    "C-04",
+    "P-09",
+    "C-10",
+    "P-08",
+    "C-01"
+  ],
+  "cotes": {
+    "P-13": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "echanges-pro"
+    },
+    "O-12": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "conduite-projet-ong"
+    },
+    "O-03": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "conduite-projet-ong"
+    },
+    "P-05": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "echanges-pro"
+    },
+    "C-14": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "course-a-pied"
+    },
+    "O-06": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "conduite-projet-ong"
+    },
+    "O-07": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "conduite-projet-ong"
+    },
+    "P-11": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "echanges-pro"
+    },
+    "P-10": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "echanges-pro"
+    },
+    "P-04": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "echanges-pro"
+    },
+    "C-05": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "O-05": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "conduite-projet-ong"
+    },
+    "C-06": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "C-13": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "O-13": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "conduite-projet-ong"
+    },
+    "O-02": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "conduite-projet-ong"
+    },
+    "P-12": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "echanges-pro"
+    },
+    "C-03": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "O-09": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "conduite-projet-ong"
+    },
+    "O-08": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "conduite-projet-ong"
+    },
+    "C-07": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "C-09": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "C-02": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "course-a-pied"
+    },
+    "P-06": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "echanges-pro"
+    },
+    "C-08": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "P-03": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "echanges-pro"
+    },
+    "O-01": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "conduite-projet-ong"
+    },
+    "C-12": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "C-11": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "P-07": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "echanges-pro"
+    },
+    "O-11": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "conduite-projet-ong"
+    },
+    "P-02": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "echanges-pro"
+    },
+    "O-10": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "conduite-projet-ong"
+    },
+    "O-04": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "conduite-projet-ong"
+    },
+    "P-01": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "echanges-pro"
+    },
+    "C-04": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "course-a-pied"
+    },
+    "P-09": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "echanges-pro"
+    },
+    "C-10": {
+      "gauche": "B",
+      "droite": "A",
+      "domaine": "course-a-pied"
+    },
+    "P-08": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "echanges-pro"
+    },
+    "C-01": {
+      "gauche": "A",
+      "droite": "B",
+      "domaine": "course-a-pied"
+    }
+  }
+}

@@ -99,12 +99,15 @@ Cette section existe parce qu'un dépôt qui ne liste que ses forces n'est pas u
   restent comparables. Le 23/09/2026 elle a été confrontée à un annotateur humain sur 40 paires
   de réponses courtes (trois domaines, aucun de revue de code) : kappa de Cohen **0,27**,
   IC95 [0,05 ; 0,49], trois classes (A / B / égales). Le même modèle, posé la même question
-  sans grille, obtient 0,31 sur le même jeu. La cause première est mesurée, pas devinée : la
-  grille sature (45 réponses sur 80 à 12/12), elle ne sépare pas deux réponses toutes deux
-  bonnes. Un annotateur, 40 paires, un intervalle large : c'est une première mesure, pas un
-  verdict, et elle est publiée comme promis, quel que soit le chiffre. Tant que la grille ne
+  sans grille, obtient 0,31 sur le même jeu ; l'écart apparié vaut 0,04, IC95 [−0,17 ; +0,25],
+  non distinguable de zéro. Une bonne part de l'explication est mesurée : la grille sature (45
+  réponses sur 80 à 12/12), elle ne sépare pas deux réponses toutes deux bonnes ; sans les 10
+  paires saturées le kappa vaut 0,39, toujours bas. Un annotateur (l'auteur), 40 paires, un
+  intervalle large : c'est une première mesure, pas un verdict, et elle est publiée comme promis,
+  quel que soit le chiffre. Tant que la grille ne
   sépare pas mieux, toute mesure de qualité produite ici est cohérente en interne et faible en
-  externe.
+  externe. Tout le matériel (jeu, annotation, notes du juge et de la baseline, rapport, scripts)
+  est dans [`calibration/`](calibration/).
 - **La mesure tourne en mode `recorded`.** Les sorties des cas réservés sont figées dans des
   fixtures, ce qui rend la suite déterministe et sans appel au modèle. Le mode `live`, où le
   skill cible est réellement exécuté sur chaque cas, est différé. La note honnête est dans le

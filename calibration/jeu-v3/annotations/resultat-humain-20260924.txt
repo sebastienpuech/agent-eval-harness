@@ -1,0 +1,22 @@
+annotation : annotations/comparaison-20260924.csv
+« les deux se valent » : 8 / 40 (Counter({'fin': 8}))
+
+== humain vs vérité-terrain du concepteur (égales exclues du compte)
+   tout                   23/32 tranchées (72%), 8 égales
+   net                    11/13 tranchées (85%), 0 égales
+   fin                    12/19 tranchées (63%), 8 égales
+   echanges-pro           6/7 tranchées (86%), 6 égales
+   conduite-projet-ong    9/12 tranchées (75%), 1 égales
+   course-a-pied          8/13 tranchées (62%), 1 égales
+   désaccords : ['P-05', 'O-01', 'O-10', 'O-13', 'C-04', 'C-05', 'C-07', 'C-09', 'C-14']
+   sur les 3 vérités contestées (P-06, C-05, C-07) : {'P-06': 'A (concepteur A)', 'C-05': 'B (concepteur A)', 'C-07': 'B (concepteur A)'}
+
+== humain vs relecteur-2-jeu-v3b
+   tout   24/32 tranchées (75%), 8 égales
+   net    11/13 tranchées (85%), 0 égales
+   fin    13/19 tranchées (68%), 8 égales
+
+== humain vs relecteur-3-jeu-v3b
+   tout   24/32 tranchées (75%), 8 égales
+   net    11/13 tranchées (85%), 0 égales
+   fin    13/19 tranchées (68%), 8 égales

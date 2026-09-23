@@ -1,0 +1,364 @@
+{
+  "paires": [
+    {
+      "id": "P-01",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B tient un engagement qu'on peut vraiment honorer sans sacrifier sa propre echeance, et cible ce qui compte en comite.",
+      "probleme": ""
+    },
+    {
+      "id": "P-02",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "B",
+      "raison_du_choix": "B donne la cause, le chiffre juste, la correction datee et le garde-fou ; A ne fait que s'excuser en renvoyant la decision.",
+      "probleme": "A ne dit meme pas ce qui etait faux ni ce qu'est le bon chiffre : personne ne la prefererait."
+    },
+    {
+      "id": "P-03",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "Le moment d'une promotion n'est pas celui du passage de relais ; A felicite avec un souvenir concret, B glisse deja vers la logistique.",
+      "probleme": ""
+    },
+    {
+      "id": "P-04",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B sort du mail et vise une version commune avant le comite ; A annonce ne pas vouloir polemiquer tout en polemiquant par ecrit.",
+      "probleme": ""
+    },
+    {
+      "id": "P-05",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "A",
+      "raison_du_choix": "Une heure avant la presentation, A restaure et propose de reconstruire en visio ; B temporise.",
+      "probleme": "B est realiste mais ne fait rien d'utile dans le delai annonce : l'autre n'est pas une vraie option."
+    },
+    {
+      "id": "P-06",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B couvre les deux hypotheses, evite un aller-retour et arrive avec des options chiffrees en temps ; A est bonne mais coute une relance.",
+      "probleme": ""
+    },
+    {
+      "id": "P-07",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B repond non tout de suite et ouvre deux portes concretes ; A fait attendre le collegue jusqu'a 18h pour probablement le meme non.",
+      "probleme": ""
+    },
+    {
+      "id": "P-08",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "B",
+      "raison_du_choix": "B localise le blocage, le debloque et donne une heure limite ; A renvoie la collegue vers un autre service.",
+      "probleme": "A est tres credible dans la vraie vie, mais au choix personne n'enverrait le renvoi de balle."
+    },
+    {
+      "id": "P-09",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "Le recrutement est le poste le plus long, le lancer vaut mieux que d'attendre une reunion ; et la question sur la ligne formation est precise.",
+      "probleme": ""
+    },
+    {
+      "id": "P-10",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "On lui demande explicitement de trancher ; B tranche, motive, depersonnalise et compense. A elude la demande.",
+      "probleme": ""
+    },
+    {
+      "id": "P-11",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "B",
+      "raison_du_choix": "A 40 minutes du comite, B repartit les taches et tient l'horaire ; A suggere des pistes en restant en reunion.",
+      "probleme": "A repond 'tu fais quoi ?' par 'toi, fais ceci' : l'ecart est trop gros pour hesiter."
+    },
+    {
+      "id": "P-12",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "non",
+      "choix": "B",
+      "raison_du_choix": "Les deux donnent la meme procedure plus une astuce d'initie de meme valeur ; je prends B parce que le piege des vacances scolaires est immediatement actionnable.",
+      "probleme": "Paire quasi interchangeable : meme structure, meme qualite, le choix ne tient qu'au gout (relationnel chez A, calendrier chez B)."
+    },
+    {
+      "id": "P-13",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "B",
+      "raison_du_choix": "Il demande explicitement de la franchise ; B la donne et propose une reecriture, A valide un mail qui va lui couter cher.",
+      "probleme": "La consigne 'dis-moi franchement' disqualifie A d'entree : le choix se fait sans lire le mail."
+    },
+    {
+      "id": "O-01",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B laisse la decision a celui qui voit la route tout en posant le cadre non negociable (verification, information des villages, marge, deuxieme vehicule).",
+      "probleme": ""
+    },
+    {
+      "id": "O-02",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "B",
+      "raison_du_choix": "B donne une date ferme, une cause unique et un correctif deja en place ; A empile les circonstances sans jamais s'engager sur une date.",
+      "probleme": "A n'annonce aucune echeance alors que le reproche porte sur le retard : ce n'est pas une option credible face a un bailleur."
+    },
+    {
+      "id": "O-03",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "Le contrat est connu, donc le non est immediat et argumente (audit), et A offre un chemin realiste qui paie les animateurs dans la semaine.",
+      "probleme": ""
+    },
+    {
+      "id": "O-04",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "La question posee etait 'les formateurs bloquent-ils janvier ?' ; B y repond et cadre le perimetre (pas d'activite nouvelle), A renvoie a la fin de semaine.",
+      "probleme": "A contient une flatterie de groupe creuse ('c'est grace au travail de chacun') typique du remplissage."
+    },
+    {
+      "id": "O-05",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B ne condamne pas une absente sur un seul recit et sort une regle durable ; A promet un recadrage immediat sans avoir entendu l'autre partie.",
+      "probleme": ""
+    },
+    {
+      "id": "O-06",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "A",
+      "raison_du_choix": "A desambigue une demande vague en trois options concretes, donne un avis et une date ; B est de la langue de bois sans aucun contenu.",
+      "probleme": "B ne contient litteralement aucune information : ce n'est pas une alternative, c'est un remplissage."
+    },
+    {
+      "id": "O-07",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "La regle du binome existe pour ce cas precis (deux heures de piste, pas de reseau) ; B refuse, assume le retard et propose un plan de rattrapage.",
+      "probleme": "Pour qui connait les regles securite du secteur, la paire frole l'evidence ; elle ne reste ouverte que pour un annotateur exterieur au secteur."
+    },
+    {
+      "id": "O-08",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "A traite le seul element vraiment risque de la situation (la foule autour) en envoyant un renfort et en restant en ligne ; B donne la bonne procedure mais laisse le chauffeur seul.",
+      "probleme": ""
+    },
+    {
+      "id": "O-09",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "A",
+      "raison_du_choix": "Le comite demande une date a donner aux gens ; A l'a, avec l'explication du retard et une reunion de restitution. B ne donne rien.",
+      "probleme": "B est de la communication institutionnelle vide face a une demande factuelle : l'autre n'est pas une vraie option."
+    },
+    {
+      "id": "O-10",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "B",
+      "raison_du_choix": "B transforme l'avance en gain reel pour les menages et renvoie la reconnaissance au comite ; A expedie la nouvelle et enchaine sur un autre sujet.",
+      "probleme": "A change de sujet en pleine bonne nouvelle : le contraste est trop gros pour hesiter."
+    },
+    {
+      "id": "O-11",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "Un accord oral ne suffit pas pour qu'une image identifiable de beneficiaire parte chez les donateurs ; B livre quand meme le texte et repousse la photo proprement.",
+      "probleme": "Petite ambiguite de pronom : 'elle a dit oui... Tu lui reponds' pourrait se lire comme une reponse a la presidente ; seules les reponses levent le doute."
+    },
+    {
+      "id": "O-12",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "A",
+      "raison_du_choix": "A cherche le signal, allege tout de suite en decalant la revue et vient sur place ; B minimise et demande a l'equipe de tenir trois semaines de plus.",
+      "probleme": "B repond a une alerte par 'c'est normal, tenez bon' : l'ecart est trop net pour constituer un choix."
+    },
+    {
+      "id": "O-13",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B reconnait ce qui est factuellement exact, garde le fond du reproche et corrige la formulation : la contestation portait justement sur la formulation.",
+      "probleme": ""
+    },
+    {
+      "id": "C-01",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B ne pose pas de diagnostic a distance, fixe un seuil de reprise et renvoie au medecin si la douleur persiste ; A decrete 'contracture' sans avoir vu la jambe.",
+      "probleme": ""
+    },
+    {
+      "id": "C-02",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "A",
+      "raison_du_choix": "A cherche la cause et allege immediatement ; B repond a une baisse de motivation par un slogan.",
+      "probleme": "B est a la limite du cliche motivationnel ('Allez, chaussures aux pieds ce soir !') ; elle reste plausible, mais aucune personne suivie individuellement ne la prefererait."
+    },
+    {
+      "id": "C-03",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "A felicite sur ce qui compte (le negatif split) et fait encaisser la performance ; B ajoute une seance de qualite juste apres un record.",
+      "probleme": ""
+    },
+    {
+      "id": "C-04",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "A preserve la derniere sortie longue sans sacrifier la sortie entre amis ; B refuse sechement une demande qui pouvait se negocier.",
+      "probleme": ""
+    },
+    {
+      "id": "C-05",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B rappelle le cadre convenu au depart, ce qui evite que la question revienne, tout en relançant la semaine ; A s'excuse d'avoir respecte l'accord.",
+      "probleme": ""
+    },
+    {
+      "id": "C-06",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "A refuse en expliquant pourquoi et remplace l'objectif par le semi le meme jour : elle garde l'objectif sans le risque de recidive.",
+      "probleme": "B est defendable (elle est deja inscrite, mieux vaut l'encadrer que la laisser seule) mais se contredit : un marathon sans sortie longue pendant quatre semaines."
+    },
+    {
+      "id": "C-07",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B couvre la meme decision que A (partir ou non selon l'etat au reveil) et ajoute le seul conseil de course utile : partir plus lentement que prevu.",
+      "probleme": ""
+    },
+    {
+      "id": "C-08",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "B",
+      "raison_du_choix": "On demande une allure et une recup ; B donne les deux en chiffres, A ne repond pas a la question.",
+      "probleme": "A est peu credible venant de celui qui a lui-meme programme le 6x1000 : il a forcement une allure en tete. Le choix se fait sans lire la situation."
+    },
+    {
+      "id": "C-09",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "A verifie avant de toucher au plan (donnees, sommeil, test compare a mars) ; B change tout sur une impression et monte la charge en aveugle.",
+      "probleme": ""
+    },
+    {
+      "id": "C-10",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "Elle vient de pleurer a l'arrivee de son premier semi ; A reste dans le moment et laisse venir la suite, B enchaine deja sur l'objectif d'apres.",
+      "probleme": ""
+    },
+    {
+      "id": "C-11",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "'Mal partout' apres trois semaines de charge est un signal, pas une courbature ; B allege et assume l'erreur de dosage, A demande de tenir.",
+      "probleme": ""
+    },
+    {
+      "id": "C-12",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B explique le cout reel de la sortie, allege, et ouvre la discussion sur le fond ('si tu les trouves trop molles, dis-le-moi') ; A est vexee et pose un ultimatum.",
+      "probleme": "A est plausible mais passive-agressive ('je ne vois pas bien a quoi je sers') : elle affaiblit beaucoup le contraste."
+    },
+    {
+      "id": "C-13",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "Pour un premier marathon a trois semaines, on court avec ce qu'on connait ; B explique le gain reel des plaques et le reporte au prochain objectif.",
+      "probleme": ""
+    },
+    {
+      "id": "C-14",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "Une nuit blanche ne permet aucune seance de qualite utile ; A decale sans culpabiliser et laisse une sortie libre si besoin de s'aerer.",
+      "probleme": ""
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "paires": [
+    {
+      "id": "P-03",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "Le souvenir precis du dossier de l'ete dernier fait une felicitation qui ne pourrait etre adressee qu'a elle ; B melange la bonne nouvelle et une question de logistique de passation qui refroidit le moment.",
+      "probleme": "Aucun. Les deux sont envoyables et se distinguent nettement (chaleur personnelle vs reflexe organisationnel) : c'est un vrai choix de temperament, sans bonne reponse."
+    },
+    {
+      "id": "P-12",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "B",
+      "raison_du_choix": "B donne les deux informations qu'un nouveau ne peut pas deviner (le delai de deux semaines et l'embouteillage des vacances scolaires) ; A est accueillante mais son 'ca passe sans probleme' peut lui faire rater Noel.",
+      "probleme": "Aucun bloquant. A noter : les deux reponses sont faciles a resumer par une etiquette (A = accueil, B = info utile), ce qui rend le choix un peu propre ; un annotateur qui privilegie l'integration d'un nouvel arrivant choisira A sans hesiter, donc les votes devraient se partager."
+    },
+    {
+      "id": "O-11",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "trop_evident",
+      "choix": "B",
+      "raison_du_choix": "Une photo de beneficiaire qui part chez des donateurs sans consentement ecrit ne se rattrape pas ; le texte peut partir ce soir, l'image attendra la signature.",
+      "probleme": "Pair trop orientee : des qu'on connait un minimum les regles de protection des donnees et d'image dans une ONG, B est la reponse attendue et A ressemble a un contre-exemple construit pour perdre. Le consensus sera quasi total, donc la paire mesurera l'adhesion a une norme plutot qu'une preference. Detail de forme : 'Tu lui reponds' juste apres deux phrases sur la presidente laisse une demi-seconde d'ambiguite, que le tiret '— au service communication' rattrape ; mieux vaudrait 'Tu reponds au service communication.'"
+    },
+    {
+      "id": "C-04",
+      "locuteur_clair": "oui",
+      "plausibles_bon_registre": "oui",
+      "tranchable": "oui",
+      "choix": "A",
+      "raison_du_choix": "A garde la seance qui compte tout en laissant la coureuse vivre sa vie : a cinq semaines, deplacer la sortie longue coute moins cher qu'un non sec qui ne se negocie pas.",
+      "probleme": "Une faiblesse technique dans A peut biaiser les coureurs avertis : a cinq semaines du marathon, la sortie longue de dimanche n'est en general pas 'la derniere avant l'affutage' (il en reste une ou deux), et 'la reduire a 1h30' contredit a moitie le 'je ne veux pas la sauter'. Un annotateur qui court pourra lire A comme approximative et basculer vers B pour une raison de justesse, pas de preference."
+    }
+  ]
+}

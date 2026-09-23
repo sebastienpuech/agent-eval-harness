@@ -1,0 +1,1523 @@
+{
+  "n": 40,
+  "protocole": {
+    "jeu": "jeu-v3/paires.json (40 paires, seed_cotes 20260922)",
+    "annotation_humaine": "annotations/comparaison-20260924.csv (1 annotateur, ordre seed 20260924)",
+    "juge": {
+      "modele": "claude-opus-4-8",
+      "n_rejeux": 3,
+      "seed_nominale": 20260706,
+      "seed_note": "seed nominale du harnais (run_grid.SEED), loguee pour la tracabilite ; l'appel via Agent SDK n'expose ni temperature ni seed, le bruit reel se lit dans bruit_intra_juge",
+      "reponses_notees": 80,
+      "appels": 240,
+      "dates": [
+        "2026-09-23",
+        "2026-09-23"
+      ],
+      "regle_egales": "|total_A - total_B| <= max(bruit_A, bruit_B) -> egales (ecrite avant la mesure)"
+    },
+    "modele_nu": {
+      "modele": "claude-opus-4-8",
+      "n_rejeux": 3,
+      "rejeux_inverses": [
+        2
+      ],
+      "system": "Tu lis une situation et deux reponses possibles. On te pose une question de choix. Reponds par un seul mot, sans rien d'autre : PREMIERE, SECONDE ou EGALES.",
+      "question": "Laquelle enverrais-tu, toi, dans cette situation ?",
+      "paires_notees": 40,
+      "appels": 120,
+      "dates": [
+        "2026-09-23",
+        "2026-09-23"
+      ],
+      "regle_preference": "majorite des 3 votes ; 'egales' si les trois different"
+    },
+    "bootstrap": {
+      "tirages": 10000,
+      "graine": 12345
+    },
+    "calcul": "2026-09-23"
+  },
+  "bruit_intra_juge": {
+    "moyen_par_paire_max_des_deux": 0.332,
+    "moyen_par_reponse": 0.195,
+    "reponses_a_bruit_nul": 51
+  },
+  "egalites": {
+    "humain": 8,
+    "juge": 12,
+    "nu": 0
+  },
+  "egalites_par_ecart": {
+    "humain": {
+      "fin": 8
+    },
+    "juge": {
+      "fin": 10,
+      "net": 2
+    },
+    "nu": {}
+  },
+  "modele_nu": {
+    "biais_de_position": {
+      "A-B": {
+        "rejeux": 80,
+        "premiere": 28,
+        "seconde": 51,
+        "egales": 1
+      },
+      "B-A": {
+        "rejeux": 40,
+        "premiere": 21,
+        "seconde": 19,
+        "egales": 0
+      }
+    },
+    "paires_stables_sous_inversion": 34,
+    "paires_unanimes": 34
+  },
+  "verites_contestees": {
+    "C-05": {
+      "verite": "A",
+      "humain": "B",
+      "juge": "egales",
+      "nu": "B"
+    },
+    "C-07": {
+      "verite": "A",
+      "humain": "B",
+      "juge": "egales",
+      "nu": "B"
+    },
+    "P-06": {
+      "verite": "A",
+      "humain": "A",
+      "juge": "A",
+      "nu": "B"
+    }
+  },
+  "plafond": {
+    "reponses_a_12_sur_12": 45,
+    "reponses": 80,
+    "paires_les_deux_a_12": 10,
+    "egales_juge_dues_au_plafond": 10
+  },
+  "ecart_nu_juge": {
+    "kappa_nu_moins_juge": 0.04,
+    "ic95_apparie": [
+      -0.167,
+      0.249
+    ],
+    "p_nu_superieur": 0.649,
+    "note": "bootstrap apparie : memes tirages de paires pour les deux kappas ; graine et tirages du protocole"
+  },
+  "sans_plafond": {
+    "paires": 30,
+    "kappa_humain_juge": 0.393,
+    "kappa_humain_juge_fin": 0.247
+  },
+  "mesures": {
+    "juge_vs_verite": {
+      "tout": {
+        "n": 40,
+        "tranchees_par_les_deux": 28,
+        "accord_brut": 26,
+        "taux_brut": 0.929,
+        "taux_3_classes": 0.65,
+        "taux_3_classes_ic95": [
+          0.5,
+          0.8
+        ],
+        "kappa": 0.457,
+        "kappa_ic95": [
+          0.286,
+          0.634
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "net": {
+        "n": 13,
+        "tranchees_par_les_deux": 11,
+        "accord_brut": 11,
+        "taux_brut": 1.0,
+        "taux_3_classes": 0.846,
+        "taux_3_classes_ic95": [
+          0.615,
+          1.0
+        ],
+        "kappa": 0.72,
+        "kappa_ic95": [
+          0.395,
+          1.0
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 2
+        }
+      },
+      "fin": {
+        "n": 27,
+        "tranchees_par_les_deux": 17,
+        "accord_brut": 15,
+        "taux_brut": 0.882,
+        "taux_3_classes": 0.556,
+        "taux_3_classes_ic95": [
+          0.37,
+          0.741
+        ],
+        "kappa": 0.351,
+        "kappa_ic95": [
+          0.152,
+          0.564
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "echanges-pro": {
+        "n": 13,
+        "tranchees_par_les_deux": 8,
+        "accord_brut": 6,
+        "taux_brut": 0.75,
+        "taux_3_classes": 0.462,
+        "taux_3_classes_ic95": [
+          0.231,
+          0.692
+        ],
+        "kappa": 0.222,
+        "kappa_ic95": [
+          0.0,
+          0.523
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "conduite-projet-ong": {
+        "n": 13,
+        "tranchees_par_les_deux": 11,
+        "accord_brut": 11,
+        "taux_brut": 1.0,
+        "taux_3_classes": 0.846,
+        "taux_3_classes_ic95": [
+          0.615,
+          1.0
+        ],
+        "kappa": 0.72,
+        "kappa_ic95": [
+          0.393,
+          1.0
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 6
+        }
+      },
+      "course-a-pied": {
+        "n": 14,
+        "tranchees_par_les_deux": 9,
+        "accord_brut": 9,
+        "taux_brut": 1.0,
+        "taux_3_classes": 0.643,
+        "taux_3_classes_ic95": [
+          0.357,
+          0.857
+        ],
+        "kappa": 0.481,
+        "kappa_ic95": [
+          0.205,
+          0.75
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      }
+    },
+    "humain_vs_juge": {
+      "tout": {
+        "n": 40,
+        "tranchees_par_les_deux": 22,
+        "accord_brut": 19,
+        "taux_brut": 0.864,
+        "taux_3_classes": 0.525,
+        "taux_3_classes_ic95": [
+          0.375,
+          0.675
+        ],
+        "kappa": 0.272,
+        "kappa_ic95": [
+          0.048,
+          0.494
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "net": {
+        "n": 13,
+        "tranchees_par_les_deux": 11,
+        "accord_brut": 10,
+        "taux_brut": 0.909,
+        "taux_3_classes": 0.769,
+        "taux_3_classes_ic95": [
+          0.538,
+          1.0
+        ],
+        "kappa": 0.581,
+        "kappa_ic95": [
+          0.145,
+          1.0
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 1
+        }
+      },
+      "fin": {
+        "n": 27,
+        "tranchees_par_les_deux": 11,
+        "accord_brut": 9,
+        "taux_brut": 0.818,
+        "taux_3_classes": 0.407,
+        "taux_3_classes_ic95": [
+          0.222,
+          0.593
+        ],
+        "kappa": 0.111,
+        "kappa_ic95": [
+          -0.167,
+          0.385
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "echanges-pro": {
+        "n": 13,
+        "tranchees_par_les_deux": 4,
+        "accord_brut": 4,
+        "taux_brut": 1.0,
+        "taux_3_classes": 0.462,
+        "taux_3_classes_ic95": [
+          0.231,
+          0.769
+        ],
+        "kappa": 0.18,
+        "kappa_ic95": [
+          -0.226,
+          0.559
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "conduite-projet-ong": {
+        "n": 13,
+        "tranchees_par_les_deux": 10,
+        "accord_brut": 8,
+        "taux_brut": 0.8,
+        "taux_3_classes": 0.615,
+        "taux_3_classes_ic95": [
+          0.385,
+          0.846
+        ],
+        "kappa": 0.393,
+        "kappa_ic95": [
+          0.093,
+          0.729
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "course-a-pied": {
+        "n": 14,
+        "tranchees_par_les_deux": 8,
+        "accord_brut": 7,
+        "taux_brut": 0.875,
+        "taux_3_classes": 0.5,
+        "taux_3_classes_ic95": [
+          0.214,
+          0.786
+        ],
+        "kappa": 0.246,
+        "kappa_ic95": [
+          -0.124,
+          0.596
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      }
+    },
+    "humain_vs_nu": {
+      "tout": {
+        "n": 40,
+        "tranchees_par_les_deux": 32,
+        "accord_brut": 24,
+        "taux_brut": 0.75,
+        "taux_3_classes": 0.6,
+        "taux_3_classes_ic95": [
+          0.45,
+          0.75
+        ],
+        "kappa": 0.312,
+        "kappa_ic95": [
+          0.08,
+          0.539
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "net": {
+        "n": 13,
+        "tranchees_par_les_deux": 13,
+        "accord_brut": 11,
+        "taux_brut": 0.846,
+        "taux_3_classes": 0.846,
+        "taux_3_classes_ic95": [
+          0.615,
+          1.0
+        ],
+        "kappa": 0.675,
+        "kappa_ic95": [
+          0.156,
+          1.0
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 6
+        }
+      },
+      "fin": {
+        "n": 27,
+        "tranchees_par_les_deux": 19,
+        "accord_brut": 13,
+        "taux_brut": 0.684,
+        "taux_3_classes": 0.481,
+        "taux_3_classes_ic95": [
+          0.296,
+          0.667
+        ],
+        "kappa": 0.182,
+        "kappa_ic95": [
+          -0.067,
+          0.429
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "echanges-pro": {
+        "n": 13,
+        "tranchees_par_les_deux": 7,
+        "accord_brut": 5,
+        "taux_brut": 0.714,
+        "taux_3_classes": 0.385,
+        "taux_3_classes_ic95": [
+          0.154,
+          0.692
+        ],
+        "kappa": 0.019,
+        "kappa_ic95": [
+          -0.182,
+          0.209
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "conduite-projet-ong": {
+        "n": 13,
+        "tranchees_par_les_deux": 12,
+        "accord_brut": 9,
+        "taux_brut": 0.75,
+        "taux_3_classes": 0.692,
+        "taux_3_classes_ic95": [
+          0.462,
+          0.923
+        ],
+        "kappa": 0.464,
+        "kappa_ic95": [
+          0.133,
+          0.847
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "course-a-pied": {
+        "n": 14,
+        "tranchees_par_les_deux": 13,
+        "accord_brut": 10,
+        "taux_brut": 0.769,
+        "taux_3_classes": 0.714,
+        "taux_3_classes_ic95": [
+          0.5,
+          0.929
+        ],
+        "kappa": 0.467,
+        "kappa_ic95": [
+          0.087,
+          0.857
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      }
+    },
+    "juge_vs_nu": {
+      "tout": {
+        "n": 40,
+        "tranchees_par_les_deux": 28,
+        "accord_brut": 25,
+        "taux_brut": 0.893,
+        "taux_3_classes": 0.625,
+        "taux_3_classes_ic95": [
+          0.475,
+          0.775
+        ],
+        "kappa": 0.412,
+        "kappa_ic95": [
+          0.237,
+          0.593
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "net": {
+        "n": 13,
+        "tranchees_par_les_deux": 11,
+        "accord_brut": 11,
+        "taux_brut": 1.0,
+        "taux_3_classes": 0.846,
+        "taux_3_classes_ic95": [
+          0.615,
+          1.0
+        ],
+        "kappa": 0.72,
+        "kappa_ic95": [
+          0.395,
+          1.0
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 2
+        }
+      },
+      "fin": {
+        "n": 27,
+        "tranchees_par_les_deux": 17,
+        "accord_brut": 14,
+        "taux_brut": 0.824,
+        "taux_3_classes": 0.519,
+        "taux_3_classes_ic95": [
+          0.333,
+          0.704
+        ],
+        "kappa": 0.292,
+        "kappa_ic95": [
+          0.106,
+          0.503
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "echanges-pro": {
+        "n": 13,
+        "tranchees_par_les_deux": 8,
+        "accord_brut": 5,
+        "taux_brut": 0.625,
+        "taux_3_classes": 0.385,
+        "taux_3_classes_ic95": [
+          0.154,
+          0.692
+        ],
+        "kappa": 0.111,
+        "kappa_ic95": [
+          -0.054,
+          0.375
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "conduite-projet-ong": {
+        "n": 13,
+        "tranchees_par_les_deux": 11,
+        "accord_brut": 11,
+        "taux_brut": 1.0,
+        "taux_3_classes": 0.846,
+        "taux_3_classes_ic95": [
+          0.615,
+          1.0
+        ],
+        "kappa": 0.72,
+        "kappa_ic95": [
+          0.393,
+          1.0
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 6
+        }
+      },
+      "course-a-pied": {
+        "n": 14,
+        "tranchees_par_les_deux": 9,
+        "accord_brut": 9,
+        "taux_brut": 1.0,
+        "taux_3_classes": 0.643,
+        "taux_3_classes_ic95": [
+          0.357,
+          0.857
+        ],
+        "kappa": 0.474,
+        "kappa_ic95": [
+          0.212,
+          0.75
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      }
+    },
+    "humain_vs_verite": {
+      "tout": {
+        "n": 40,
+        "tranchees_par_les_deux": 32,
+        "accord_brut": 23,
+        "taux_brut": 0.719,
+        "taux_3_classes": 0.575,
+        "taux_3_classes_ic95": [
+          0.425,
+          0.725
+        ],
+        "kappa": 0.283,
+        "kappa_ic95": [
+          0.053,
+          0.508
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "net": {
+        "n": 13,
+        "tranchees_par_les_deux": 13,
+        "accord_brut": 11,
+        "taux_brut": 0.846,
+        "taux_3_classes": 0.846,
+        "taux_3_classes_ic95": [
+          0.615,
+          1.0
+        ],
+        "kappa": 0.675,
+        "kappa_ic95": [
+          0.156,
+          1.0
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 6
+        }
+      },
+      "fin": {
+        "n": 27,
+        "tranchees_par_les_deux": 19,
+        "accord_brut": 12,
+        "taux_brut": 0.632,
+        "taux_3_classes": 0.444,
+        "taux_3_classes_ic95": [
+          0.259,
+          0.63
+        ],
+        "kappa": 0.14,
+        "kappa_ic95": [
+          -0.106,
+          0.388
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "echanges-pro": {
+        "n": 13,
+        "tranchees_par_les_deux": 7,
+        "accord_brut": 6,
+        "taux_brut": 0.857,
+        "taux_3_classes": 0.462,
+        "taux_3_classes_ic95": [
+          0.231,
+          0.769
+        ],
+        "kappa": 0.18,
+        "kappa_ic95": [
+          -0.073,
+          0.469
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "conduite-projet-ong": {
+        "n": 13,
+        "tranchees_par_les_deux": 12,
+        "accord_brut": 9,
+        "taux_brut": 0.75,
+        "taux_3_classes": 0.692,
+        "taux_3_classes_ic95": [
+          0.462,
+          0.923
+        ],
+        "kappa": 0.464,
+        "kappa_ic95": [
+          0.133,
+          0.847
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      },
+      "course-a-pied": {
+        "n": 14,
+        "tranchees_par_les_deux": 13,
+        "accord_brut": 8,
+        "taux_brut": 0.615,
+        "taux_3_classes": 0.571,
+        "taux_3_classes_ic95": [
+          0.286,
+          0.857
+        ],
+        "kappa": 0.27,
+        "kappa_ic95": [
+          -0.029,
+          0.625
+        ],
+        "bootstrap": {
+          "tirages": 10000,
+          "graine": 12345,
+          "kappa_indefini": 0
+        }
+      }
+    }
+  },
+  "detail": [
+    {
+      "cas": "C-01",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 11,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-02",
+      "domaine": "course-a-pied",
+      "ecart": "net",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 11.667,
+      "juge_total_B": 6.333,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-03",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 7.667,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-04",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "B",
+      "juge": "egales",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-05",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": true,
+      "humain": "B",
+      "juge": "egales",
+      "nu": "B",
+      "juge_total_A": 11.667,
+      "juge_total_B": 11.667,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "nu_unanime": false
+    },
+    {
+      "cas": "C-06",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "egales",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-07",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": true,
+      "humain": "B",
+      "juge": "egales",
+      "nu": "B",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "nu_unanime": false
+    },
+    {
+      "cas": "C-08",
+      "domaine": "course-a-pied",
+      "ecart": "net",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 9.667,
+      "juge_total_B": 11.667,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-09",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "B",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 10.333,
+      "juge_bruit": 0.943,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-10",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 9.667,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-11",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 9.667,
+      "juge_total_B": 12,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-12",
+      "domaine": "course-a-pied",
+      "ecart": "net",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 9.667,
+      "juge_total_B": 12,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-13",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "egales",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 10,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "C-14",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "B",
+      "juge": "egales",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-01",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "A",
+      "juge": "egales",
+      "nu": "B",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-02",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 8,
+      "juge_total_B": 11.667,
+      "juge_bruit": 0.816,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-03",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 10,
+      "juge_bruit": 0.816,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-04",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 7.667,
+      "juge_total_B": 12,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-05",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "egales",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 10.333,
+      "juge_total_B": 11.333,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-06",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 7.333,
+      "juge_bruit": 0.943,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-07",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 11,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-08",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "egales",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-09",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 4.333,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-10",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "verite": "B",
+      "contestee": false,
+      "humain": "A",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 9.333,
+      "juge_total_B": 12,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-11",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 10.333,
+      "juge_total_B": 12,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-12",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "verite": "A",
+      "contestee": false,
+      "humain": "A",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 10,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "O-13",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "A",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 11.333,
+      "juge_total_B": 12,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-01",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "egales",
+      "nu": "B",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-02",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 11,
+      "juge_total_B": 12,
+      "juge_bruit": 0.816,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-03",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "egales",
+      "juge": "A",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 11.333,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "egales",
+        "A",
+        "A"
+      ],
+      "nu_unanime": false
+    },
+    {
+      "cas": "P-04",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "egales",
+      "juge": "A",
+      "nu": "B",
+      "juge_total_A": 12,
+      "juge_total_B": 10.667,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-05",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "verite": "A",
+      "contestee": false,
+      "humain": "B",
+      "juge": "egales",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-06",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": true,
+      "humain": "A",
+      "juge": "A",
+      "nu": "B",
+      "juge_total_A": 12,
+      "juge_total_B": 11,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "nu_unanime": false
+    },
+    {
+      "cas": "P-07",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "egales",
+      "juge": "A",
+      "nu": "B",
+      "juge_total_A": 12,
+      "juge_total_B": 10.667,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-08",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 11,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-09",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "verite": "A",
+      "contestee": false,
+      "humain": "egales",
+      "juge": "egales",
+      "nu": "B",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "nu_unanime": false
+    },
+    {
+      "cas": "P-10",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "egales",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 10.667,
+      "juge_total_B": 12,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-11",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "egales",
+      "nu": "B",
+      "juge_total_A": 12,
+      "juge_total_B": 11.667,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    },
+    {
+      "cas": "P-12",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "verite": "B",
+      "contestee": false,
+      "humain": "egales",
+      "juge": "egales",
+      "nu": "A",
+      "juge_total_A": 12,
+      "juge_total_B": 12,
+      "juge_bruit": 0.0,
+      "nu_votes": [
+        "B",
+        "A",
+        "A"
+      ],
+      "nu_unanime": false
+    },
+    {
+      "cas": "P-13",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "verite": "B",
+      "contestee": false,
+      "humain": "B",
+      "juge": "B",
+      "nu": "B",
+      "juge_total_A": 8.667,
+      "juge_total_B": 12,
+      "juge_bruit": 0.471,
+      "nu_votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "nu_unanime": true
+    }
+  ]
+}

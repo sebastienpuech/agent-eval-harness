@@ -1,0 +1,337 @@
+#!/usr/bin/env python3
+"""
+Construit jeu-v3/paires.json : 40 paires de réponses à comparer, trois domaines.
+
+La source de vérité est la liste PAIRES ci-dessous (meilleure / moins_bonne).
+Le script tire à pile ou face, seed figée, laquelle devient reponse_A et laquelle
+reponse_B — pour qu'aucun côté ne trahisse la bonne réponse.
+
+Usage :
+    python construire_paires.py                 -> écrit paires.json (avec vérité-terrain)
+    python construire_paires.py --pour-relecteur CHEMIN
+                                                -> écrit en plus une version SANS vérité-terrain,
+                                                   sans écart, sans défaut, pour le relecteur
+"""
+import argparse
+import json
+import random
+from collections import Counter
+from pathlib import Path
+
+ICI = Path(__file__).resolve().parent
+SEED_COTES = 20260922
+
+PRO, ONG, COURSE = "echanges-pro", "conduite-projet-ong", "course-a-pied"
+
+# Paires où les deux relecteurs indépendants du 22/09/2026 ont choisi l'AUTRE réponse que le
+# concepteur (voir validation.md). La vérité-terrain est gardée telle quelle — c'est une note
+# de conception, pas une mesure — mais l'analyse doit savoir qu'elle est contestée 2 contre 1.
+VERITE_CONTESTEE = {"P-06", "C-05", "C-07"}
+
+PAIRES = [
+    # ------------------------------------------------------------------ PRO
+    dict(id="P-01", domaine=PRO, type="demande", ecart="fin",
+         situation="Tu es chargé d'études dans une équipe de six. Un collègue t'écrit à 15h : « Tu pourrais relire ma présentation pour le comité de demain matin ? 25 slides. » Tu as toi-même une échéance ce soir. Tu lui réponds.",
+         meilleure="Je peux te relire les 8 premières slides et la conclusion d'ici 17h30, c'est là que ça se joue en comité. Pour le milieu, je n'aurai pas le temps ce soir. Envoie-moi le fichier maintenant, je te renvoie mes remarques en commentaires.",
+         moins_bonne="Envoie, je te relis tout ce soir, les 25, tu auras mes commentaires avant 22h. Ma propre échéance attendra demain matin, je m'arrangerai. Mets-moi en commentaire les slides sur lesquelles tu doutes le plus, je commencerai par là.",
+         defaut="sacrifie sa propre échéance pour relire 25 slides dont 8 comptent vraiment",
+         raison="les deux sont concrètes et tiennent ; la meilleure choisit ce qui pèse en comité sans casser sa propre journée, l'autre paie tout"),
+    dict(id="P-02", domaine=PRO, type="reproche", ecart="net",
+         situation="Tu es analyste. Ta responsable t'écrit : « Le chiffre de marge que tu as envoyé au client hier est faux, il m'a appelée. C'est la deuxième fois ce mois-ci. » Tu lui réponds.",
+         meilleure="Tu as raison, et je suis désolé. J'ai retrouvé l'erreur : j'ai pris la colonne HT au lieu de TTC, le bon chiffre est 14,2 % et pas 17,1 %. Je t'envoie la version corrigée dans l'heure pour que tu la valides avant qu'elle reparte. Et pour que ça ne se reproduise pas, je fais relire tout chiffre client par quelqu'un de l'équipe avant envoi.",
+         moins_bonne="Désolé pour ça, je ne sais pas comment c'est passé, j'ai dû me tromper de colonne en allant vite. Je vais faire beaucoup plus attention la prochaine fois, promis, je sais que c'est la deuxième fois et que ça ne fait pas sérieux vis-à-vis du client. Tu veux que je le rappelle moi-même pour m'excuser, ou tu préfères t'en charger ? Dis-moi comment tu veux qu'on gère.",
+         defaut="aucune cause, aucun chiffre corrigé, une promesse d'attention à la place d'une mesure",
+         raison="la meilleure nomme l'erreur, corrige, et propose un garde-fou ; l'autre s'excuse sans rien réparer"),
+    dict(id="P-03", domaine=PRO, type="bonne nouvelle", ecart="fin",
+         situation="Tu partages un bureau avec une collègue depuis trois ans. Elle t'écrit : « Ça y est, c'est officiel, je passe responsable d'équipe au 1er du mois ! » Tu lui réponds.",
+         meilleure="Enfin ! Franchement c'est mérité, rien que la façon dont tu as tenu le dossier de l'été dernier quand tout le monde était en vacances. Très content pour toi. On fête ça jeudi midi ?",
+         moins_bonne="Félicitations, c'est mérité ! Ça veut dire que tu changes d'étage ? Il faudra qu'on cale un moment pour le passage de relais sur notre projet commun, mais d'abord on fête ça — jeudi midi ?",
+         defaut="chaleureuse aussi, mais glisse déjà vers l'organisation dans le message de félicitations",
+         raison="la meilleure reste sur la personne et ancre sur un souvenir précis ; l'autre détourne vers soi"),
+    dict(id="P-04", domaine=PRO, type="conflit", ecart="fin",
+         situation="Tu es chef de projet. En réunion ce matin, un collègue a dit devant tout le monde que le retard venait de toi. Il t'écrit ensuite : « Désolé pour tout à l'heure, je me suis emporté, mais bon on est quand même en retard. » Tu lui réponds.",
+         meilleure="Merci d'être revenu vers moi. On est en retard, c'est vrai, et on ne voit pas la même chaîne de causes. Plutôt que par mail : 20 minutes demain matin, on pose le calendrier à plat et on repart avec une version qu'on défend ensemble ?",
+         moins_bonne="Pas de souci, ça arrive, on est tous sous pression. Juste pour être clair : le retard vient du fait que les specs ont changé deux fois, pas de mon planning, et je l'avais signalé dès la première fois. Je ne veux pas polémiquer, mais si ça ressort en comité je préfère qu'on ait la même version des faits.",
+         defaut="accepte l'excuse puis rouvre le procès par écrit",
+         raison="la meilleure clôt l'incident et déplace le désaccord vers un échange à l'oral ; l'autre réplique et fige"),
+    dict(id="P-05", domaine=PRO, type="urgence", ecart="net",
+         situation="Tu es responsable des outils partagés. Une collègue d'un autre service t'écrit : « Le fichier de la présentation client est illisible, ça dit 'corrompu'. Je présente dans une heure. » Tu lui réponds.",
+         meilleure="La sauvegarde automatique d'hier 19h est intacte, je te la mets à l'instant dans ton dossier sous le nom « présentation-client-RESTAUREE ». Il y manque ce que tu as fait ce matin. Dis-moi les slides que tu as touchées, je les refais avec toi sur mon écran en visio dans 5 minutes.",
+         moins_bonne="Je regarde ça tout de suite, ne ferme surtout pas le fichier en attendant. Ça arrive parfois quand deux personnes l'ont ouvert en même temps sur le réseau, en général on arrive à récupérer. Je te tiens au courant dès que j'ai quelque chose, et si jamais tu as une version envoyée par mail récemment, cherche-la de ton côté, ça peut servir.",
+         defaut="aucune solution dans un message où le temps est la seule chose qui compte",
+         raison="la meilleure livre une version utilisable et un plan pour combler l'écart ; l'autre ne donne rien à faire pendant l'heure qui reste"),
+    dict(id="P-06", domaine=PRO, type="flou", ecart="fin",
+         situation="Tu es chargé de mission. Ta responsable t'écrit, sans autre précision : « Il faudrait qu'on avance sur le sujet reporting. » Tu lui réponds.",
+         meilleure="Tu penses au tableau mensuel pour la direction, ou à l'automatisation dont on avait parlé en juin ? Les deux ne demandent pas le même temps. Dis-moi lequel et je te propose une trame jeudi.",
+         moins_bonne="Bien noté. Je te prépare pour jeudi un état des lieux de ce qu'on produit aujourd'hui, ce qui manque, et deux options chiffrées en temps — le tableau mensuel ou l'automatisation dont on avait parlé en juin. On tranche à ce moment-là.",
+         defaut="deux jours de travail pour couvrir deux objets, là où une question de deux lignes en écartait un",
+         raison="les deux sont recevables ; la meilleure lève l'ambiguïté avant de produire, l'autre produit pour lever l'ambiguïté"),
+    dict(id="P-07", domaine=PRO, type="demande", ecart="fin",
+         situation="Tu travailles à l'accueil d'un service. Un collègue t'écrit : « Tu peux prendre ma permanence vendredi après-midi ? J'ai un rendez-vous médical. » Tu as déjà un engagement ce vendredi. Tu lui réponds.",
+         meilleure="Vendredi je ne peux pas, j'ai un engagement à 14h que je ne peux pas déplacer. Par contre le planning montre deux personnes disponibles vendredi, je peux leur demander pour toi si tu veux — et si tu préfères échanger avec quelqu'un contre jeudi, moi je suis libre ce jour-là.",
+         moins_bonne="Vendredi c'est compliqué pour moi, j'ai un engagement à 14h. Laisse-moi jusqu'à 18h ce soir pour voir si je peux le décaler, et je te réponds ferme à ce moment-là. Si c'est non, on regarde ensemble qui d'autre est dispo, il y a sûrement quelqu'un.",
+         defaut="généreuse et bornée dans le temps, mais fait attendre une réponse qu'on pouvait donner tout de suite",
+         raison="les deux sont honnêtes ; la meilleure répond ferme maintenant et agit pour lui, l'autre le fait attendre jusqu'au soir pour un peut-être"),
+    dict(id="P-08", domaine=PRO, type="reproche", ecart="net",
+         situation="Tu es référent informatique de ton service. Une collègue t'écrit : « Ça fait trois fois que je demande l'accès au dossier partagé et il ne se passe rien. Je ne peux pas travailler. » Tu lui réponds.",
+         meilleure="Tu as raison de râler, trois demandes c'est trop. Ta demande est bloquée à l'étape de validation par le responsable du dossier, qui est en congé jusqu'à lundi. Je viens de la faire basculer sur sa remplaçante, elle m'a dit qu'elle la traitait avant midi. Si tu n'as rien à 14h, appelle-moi directement.",
+         moins_bonne="Désolé, mais ce n'est pas nous qui validons les accès, c'est le service informatique central, et ils ont pas mal de retard en ce moment. J'ai relancé de mon côté ce matin. Tu peux aussi les appeler directement, ça va parfois plus vite quand c'est l'utilisateur qui appelle. Je sais que c'est pénible, on a tous eu le coup au moins une fois ici.",
+         defaut="renvoie la responsabilité ailleurs et laisse la personne relancer elle-même",
+         raison="la meilleure explique le blocage, agit, et donne une heure ; l'autre s'exonère"),
+    dict(id="P-09", domaine=PRO, type="bonne nouvelle", ecart="fin",
+         situation="Tu es chef de projet. Ta responsable t'écrit : « Bonne nouvelle : la direction a validé ton budget pour l'année prochaine, montant complet. » Tu lui réponds.",
+         meilleure="Excellente nouvelle, merci d'avoir porté le dossier. Je lance le recrutement du poste dès lundi puisque c'est le plus long. Une question : le montant complet inclut-il la ligne formation qu'on avait mise en option ? Ça change mon calendrier du premier trimestre.",
+         moins_bonne="Merci, très bonne nouvelle, et merci d'avoir porté le dossier. Avant de lancer quoi que ce soit, je préfère qu'on cale les priorités ensemble : tu as 30 minutes demain ou jeudi ? Je viendrai avec le calendrier du premier trimestre et les deux recrutements, on décide de l'ordre à ce moment-là.",
+         defaut="attend une réunion pour lancer ce qui peut l'être tout de suite, alors que la validation est acquise",
+         raison="les deux avancent ; la meilleure lance le poste long dès lundi et ne demande que ce qui bloque, l'autre remet tout à une réunion"),
+    dict(id="P-10", domaine=PRO, type="conflit", ecart="fin",
+         situation="Tu encadres une équipe de quatre. L'un d'eux t'écrit : « Ma collègue et moi voulons tous les deux prendre le dossier du nouveau client. On n'arrive pas à se mettre d'accord. Tu tranches ? » Tu lui réponds.",
+         meilleure="Je tranche : c'est elle, parce qu'elle a suivi ce client sur l'appel d'offres et que tu as le renouvellement de mars sur les bras. Rien à voir avec le mérite. Je lui écris la même chose, et le prochain dossier de ce type est pour toi.",
+         moins_bonne="Franchement, je préfère que vous régliez ça entre vous, vous êtes grands et vous connaissez mieux que moi vos charges respectives. Regardez qui a le plus de place dans les semaines qui viennent et dites-moi ce que vous avez décidé. Si vraiment vous n'y arrivez pas, on en parle à la réunion de lundi.",
+         defaut="renvoie une demande d'arbitrage explicite, en ajoutant une pointe",
+         raison="les deux stratégies existent ; ici il a demandé une décision, la meilleure la donne avec sa raison et une compensation"),
+    dict(id="P-11", domaine=PRO, type="urgence", ecart="net",
+         situation="Tu es assistant de direction. Une collègue t'écrit : « Le traiteur n'est pas venu, la salle du comité de 14h n'est pas prête, il est 13h20. Tu fais quoi ? » Tu lui réponds.",
+         meilleure="Je m'occupe de la salle : chaises de la 204, boissons du distributeur du 2e, prêt à 13h50. Toi, appelle le traiteur pour savoir s'il livre en retard ou pas du tout, et préviens le directeur qu'il n'y aura peut-être pas de sandwichs — il préférera le savoir maintenant. On se retrouve dans la salle à 13h45.",
+         moins_bonne="Ah mince, c'est pas de chance. Tu as essayé d'appeler le traiteur ? Il a peut-être juste du retard, ça leur est déjà arrivé en juin. Pour la salle, vois avec les gens du 2e s'ils peuvent te donner un coup de main pour installer, et tiens-moi au courant, je suis en réunion jusqu'à 13h45 mais je regarde mon téléphone.",
+         defaut="une question, aucune action, à quarante minutes de l'échéance",
+         raison="la meilleure répartit les gestes et fixe une heure ; l'autre renvoie la balle"),
+    dict(id="P-12", domaine=PRO, type="flou", ecart="fin",
+         situation="Tu es en poste depuis quatre ans. Un collègue arrivé la semaine dernière t'écrit : « Comment ça marche ici pour poser des congés ? » Tu lui réponds.",
+         meilleure="Tu fais la demande dans l'outil RH (l'icône calendrier sur l'intranet), au moins deux semaines avant. C'est ta responsable qui valide. Le piège : les demandes pour les vacances scolaires partent vite, donc si tu as des dates en tête pour Noël, pose-les cette semaine même si ça paraît tôt.",
+         moins_bonne="Demande dans l'outil RH sur l'intranet (icône calendrier), c'est ta responsable qui valide, ça passe en général sans problème. Pose-les dès que tu sais tes dates, et n'hésite pas à lui en parler à l'oral avant, elle apprécie. Bienvenue au passage — on se fait un café cette semaine ?",
+         defaut="juste et chaleureuse, mais tait le délai de deux semaines et le piège des vacances scolaires, les deux choses qu'un nouveau ne peut pas deviner",
+         raison="les deux donnent la procédure ; la meilleure ajoute les deux règles qu'on ne devine pas, l'autre ajoute de l'accueil"),
+    dict(id="P-13", domaine=PRO, type="demande", ecart="net",
+         situation="Un chef de projet avec qui tu travailles t'écrit : « Tu peux me dire franchement ce que tu penses de ce mail avant que je l'envoie à la direction ? » Le mail dit que la direction a « ignoré ses alertes » et que « les conséquences sont maintenant sur la table ». Tu lui réponds.",
+         meilleure="Franchement : sur le fond tu as raison, sur la forme ça va se retourner contre toi. « Ignoré mes alertes » et « les conséquences sont sur la table », c'est tout ce qu'ils retiendront. Garde les faits et les dates, enlève ces deux formules, termine par ce que tu proposes. Je te renvoie une version dans 15 minutes si tu veux.",
+         moins_bonne="C'est bien, c'est clair et on sent que tu maîtrises le dossier. Peut-être adoucir un peu le début, qui est un peu direct, et relire la dernière phrase qui pourrait être mal prise, mais sinon je pense que ça passe. C'est bien de mettre les choses sur la table. Tu peux l'envoyer.",
+         defaut="rassure au lieu de dire le risque, alors qu'il demande la franchise",
+         raison="la meilleure nomme les deux formules qui vont coûter et propose une sortie ; l'autre valide un mail dangereux"),
+
+    # ------------------------------------------------------------------ ONG
+    dict(id="O-01", domaine=ONG, type="urgence", ecart="fin",
+         situation="Tu es responsable programme dans une ONG internationale, en capitale. Le chef de base t'écrit : « La route vers le site de distribution est coupée par les pluies. La distribution est demain matin, 400 ménages ont été prévenus. » Tu lui réponds.",
+         meilleure="Tu es sur place, c'est toi qui décides, et voilà le cadre. Si le logisticien confirme ce soir que la route ne passe pas, tu reportes et tu fais prévenir les villages par les relais avant la nuit, pour que personne ne se déplace pour rien. S'il existe un itinéraire sûr, tu y vas avec une heure de marge et un deuxième véhicule. Dans tous les cas, appelle-moi avant 18h.",
+         moins_bonne="On reporte, on ne tente pas la route demain. Trois choses aujourd'hui : préviens les chefs de village par les relais communautaires avant ce soir, pour que personne ne se déplace pour rien ; envoie le logisticien reconnaître l'itinéraire par le nord demain à la première heure ; dis-moi si le stock à l'entrepôt tient une semaine de plus. Appelle-moi à 17h pour faire le point.",
+         defaut="décide depuis la capitale, sur une route qu'elle ne voit pas, à la place de celui qui la voit",
+         raison="les deux sont nettes et datées ; la meilleure laisse la décision à celui qui a l'information, en lui donnant le critère et l'heure limite"),
+    dict(id="O-02", domaine=ONG, type="reproche", ecart="net",
+         situation="Tu es chef de projet. La chargée de suivi du bailleur t'écrit : « Le rapport trimestriel est en retard de dix jours. C'est la deuxième fois sur ce projet. » Tu lui réponds.",
+         meilleure="Vous avez raison, et je vous présente mes excuses. Le rapport vous parviendra jeudi avant midi, version finale. Le retard vient de la consolidation des données de deux sites, arrivées hors format ; nous avons depuis imposé un gabarit unique, que nos équipes utilisent depuis ce mois-ci. Le prochain rapport partira dans les délais, et je vous enverrai une version intermédiaire deux semaines avant l'échéance.",
+         moins_bonne="Je suis sincèrement désolé pour ce retard. Le trimestre a été particulièrement difficile : nous avons eu deux départs dans l'équipe de suivi, des problèmes d'accès sur un des sites pendant trois semaines, et la consolidation des données prend beaucoup plus de temps que prévu avec les nouveaux outils. Nous faisons notre maximum pour finaliser le rapport au plus vite et vous l'enverrons dès qu'il sera prêt.",
+         defaut="explique longuement sans donner de date, ce qui est la seule chose qu'elle attend",
+         raison="la meilleure donne une date, une cause, un correctif ; l'autre donne des raisons"),
+    dict(id="O-03", domaine=ONG, type="demande", ecart="fin",
+         situation="Tu es coordinateur d'un projet mis en œuvre avec une association locale. Son directeur t'écrit : « Nous avons besoin d'une avance de 20 % sur la prochaine tranche pour payer les animateurs ce mois-ci. » Le contrat ne prévoit pas d'avance. Tu lui réponds.",
+         meilleure="Je comprends, et je ne veux pas que les animateurs restent impayés. Une avance hors contrat, je ne peux pas : ça bloquerait à l'audit, pour vous comme pour nous. Ce que je peux faire : déclencher la prochaine tranche dès réception de votre rapport d'activité, même incomplet sur les annexes. Si vous me l'envoyez lundi, le virement part jeudi. Ça vous tient ?",
+         moins_bonne="Merci pour votre message, je comprends bien la situation et l'urgence pour les animateurs. Je vais voir avec notre service financier ce qu'il est possible de faire dans le cadre du contrat, et je reviens vers vous rapidement, si possible avant la fin de la semaine. En attendant, pourriez-vous m'envoyer l'état des dépenses du mois pour que j'aie tous les éléments ?",
+         defaut="promet un retour sans dire ni la contrainte ni la solution qu'il connaît déjà",
+         raison="la meilleure dit non au bon endroit et oui là où c'est possible, avec des dates ; l'autre diffère"),
+    dict(id="O-04", domaine=ONG, type="bonne nouvelle", ecart="fin",
+         situation="Tu es chef de projet. Sur le groupe de messagerie du projet, le chef d'équipe terrain t'écrit : « Des nouvelles du bailleur pour l'extension ? Les formateurs me demandent s'ils doivent bloquer janvier. » Le bailleur vient d'accepter ce matin une extension de trois mois, sans budget supplémentaire. Tu lui réponds sur le groupe.",
+         meilleure="Oui, acceptée ce matin : trois mois, jusqu'à fin mars, sans budget en plus. Dis aux formateurs de bloquer la deuxième quinzaine de janvier pour les deux formations reportées. Pas d'activité nouvelle, on termine bien celles qui restent. Chacun met à jour son planning d'ici vendredi, on en parle lundi.",
+         moins_bonne="Oui ! Acceptée ce matin, trois mois de plus, jusqu'à fin mars — une excellente nouvelle pour tout le monde, bravo à toute l'équipe, c'est grâce au travail de chacun. Pour janvier, dis aux formateurs qu'on les tient au courant d'ici la fin de semaine : je dois d'abord caler le calendrier avec le siège avant de bloquer des dates.",
+         defaut="répond à la nouvelle mais pas à la question des formateurs, qu'elle renvoie au siège",
+         raison="les deux annoncent ; la meilleure répond à la question posée avec une date, l'autre félicite et fait attendre les formateurs"),
+    dict(id="O-05", domaine=ONG, type="conflit", ecart="fin",
+         situation="Tu es coordinateur de base. Le responsable logistique t'écrit : « La cheffe de projet prend les véhicules sans passer par le planning. Ce matin j'avais bloqué le pick-up pour l'approvisionnement, il était parti. Ça ne peut plus durer. » Tu lui réponds.",
+         meilleure="Tu as raison, un planning contourné ne sert à rien. Mais je ne tranche pas sur ce matin sans l'avoir entendue. Jeudi 9h, tous les trois, 20 minutes : on fixe une règle simple — le planning validé le vendredi fait foi, toute sortie hors planning passe par toi ou moi. D'ici là, envoie-moi les sorties prévues cette semaine.",
+         moins_bonne="C'est inacceptable, tu as raison, et ce n'est pas la première fois qu'on me remonte ce genre de chose. Je lui écris tout de suite pour lui rappeler que le planning véhicules, c'est toi qui le tiens et que personne ne le contourne, cheffe de projet ou pas. Ça ne se reproduira plus, et si ça arrive encore tu me le dis directement.",
+         defaut="donne raison sur une seule version des faits et engage la cheffe de projet sans l'avoir entendue",
+         raison="les deux prennent le problème au sérieux ; la meilleure instaure une règle avec les deux parties, l'autre tranche à l'aveugle"),
+    dict(id="O-06", domaine=ONG, type="flou", ecart="net",
+         situation="Tu es chef de projet. Ta référente au siège t'écrit : « Il faudrait renforcer la redevabilité sur le projet. » Rien d'autre. Tu lui réponds.",
+         meilleure="Pour être sûr de viser juste : tu penses au mécanisme de plaintes (la ligne téléphonique tourne mais on a peu de retours), aux restitutions aux communautés (une seule faite sur trois prévues), ou au reporting vers le bailleur ? Mon avis : les restitutions, c'est là qu'on est le plus en retard et ça se rattrape en six semaines. Dis-moi si tu vois autre chose, je te propose un plan mercredi.",
+         moins_bonne="Bien noté, c'est un sujet important et je suis d'accord qu'on peut faire mieux. On va y travailler avec l'équipe dans les semaines qui viennent, je vais en parler à la prochaine réunion de coordination pour voir ce que chacun peut faire à son niveau. Je te tiens informée de ce qui en sort. Merci pour le rappel.",
+         defaut="acquiesce sans savoir de quoi il s'agit, aucune suite identifiable",
+         raison="la meilleure ouvre trois lectures, en choisit une, et fixe un rendu ; l'autre n'engage rien"),
+    dict(id="O-07", domaine=ONG, type="demande", ecart="fin",
+         situation="Tu es responsable du suivi-évaluation. Une agente de collecte t'écrit : « Je peux aller faire les entretiens dans le village le plus éloigné seule demain ? Mon binôme est malade et je ne veux pas prendre de retard. » Tu lui réponds.",
+         meilleure="Non, pas seule sur celui-là : c'est à deux heures de piste et sans réseau sur la moitié du trajet, la règle des déplacements en binôme est là pour ça. Le retard, je le prends sur moi. Fais les deux villages proches demain avec le chauffeur, et je te trouve un binôme pour l'éloigné jeudi — je demande à l'équipe protection dès ce soir.",
+         moins_bonne="Si tu te sens à l'aise, oui, ça me va. Préviens le chef de base avant de partir, dis-lui l'heure de retour prévue, envoie un message en arrivant au village et un autre au départ. Prends le chauffeur habituel, pas un autre. Merci de ne pas vouloir prendre de retard, c'est apprécié — on fera les entretiens suivants avec ton binôme dès qu'il est rétabli.",
+         defaut="autorise un déplacement seul sur un site isolé, au nom du planning",
+         raison="la meilleure refuse pour une raison précise et absorbe le retard ; l'autre cède à la bonne volonté"),
+    dict(id="O-08", domaine=ONG, type="urgence", ecart="fin",
+         situation="Tu es coordinateur de base. Un chauffeur t'écrit : « J'ai eu un accrochage avec une moto en ville, personne n'est blessé, mais le conducteur veut que je paie tout de suite et il y a du monde autour. Je fais quoi ? » Tu lui réponds.",
+         meilleure="Le plus important est fait : personne n'est blessé. Ne paie rien, ne discute pas d'argent sur place. Photos des deux véhicules et de la plaque, nom du conducteur, et reste calme avec les gens autour. Le logisticien part te rejoindre, il est là dans 15 minutes. Si ça se tend, appelle-moi, je reste au téléphone.",
+         moins_bonne="Ok. Ne paie rien sur place, jamais, même s'ils insistent. Fais un constat avec le conducteur, note son nom et son numéro, prends des photos des deux véhicules. Rédige-moi un rapport d'incident en rentrant, avec les photos, on le transmet à l'assurance demain. Et rappelle-toi que le véhicule est assuré, ce n'est pas à toi de payer quoi que ce soit.",
+         defaut="juste sur la procédure, mais laisse quelqu'un d'inquiet seul dans un attroupement",
+         raison="les deux disent de ne pas payer ; la meilleure envoie quelqu'un et rassure, l'autre demande un rapport"),
+    dict(id="O-09", domaine=ONG, type="reproche", ecart="net",
+         situation="Tu es chef de projet. Un représentant du comité villageois t'écrit : « Vous aviez promis la réhabilitation du puits pour mars. Nous sommes en juin. Les gens demandent si vous allez revenir. » Tu lui réponds.",
+         meilleure="Vous avez raison de nous le rappeler, et je vous dois une explication : l'entreprise choisie a fait défaut en avril, nous avons dû relancer une consultation, et le nouveau contrat est signé depuis la semaine dernière. Les travaux commencent le 8 du mois prochain, pour trois semaines. Je viendrai le présenter au comité mardi prochain à 10h, si cela vous convient, pour que vous puissiez donner aux gens une date que nous tiendrons.",
+         moins_bonne="Nous comprenons votre impatience et celle de la communauté, et nous faisons de notre mieux. Le dossier a rencontré des difficultés que nous ne pouvions pas prévoir, mais il avance et nous reviendrons vers vous dès que possible avec des nouvelles précises. Nous n'avons pas oublié notre engagement. Merci de votre patience et de votre confiance, elles sont précieuses pour nous.",
+         defaut="trois formules, aucune date, à des gens qui attendent depuis trois mois",
+         raison="la meilleure explique, date, et vient le dire ; l'autre ajoute une promesse vide aux précédentes"),
+    dict(id="O-10", domaine=ONG, type="bonne nouvelle", ecart="net",
+         situation="Tu es responsable programme. Un agent terrain t'écrit : « Le comité local a validé la liste des bénéficiaires ce matin, une semaine avant la date prévue ! » Tu lui réponds.",
+         meilleure="Très bien joué, une semaine d'avance, ce n'est pas rien. Profitons-en : envoie-moi la liste signée ce soir, je fais tourner la vérification des doublons demain, et si c'est propre on avance la distribution au 12 au lieu du 19. Dis au comité que leur rapidité fait gagner une semaine aux ménages.",
+         moins_bonne="Super nouvelle, bravo à toi et au comité, ça fait plaisir d'avoir des bonnes nouvelles ! Au fait, tu as pu vérifier le niveau du stock de carburant de la base ? Le logisticien me dit qu'il n'a pas eu de réponse depuis lundi et j'ai besoin du chiffre pour la commande de demain. Merci d'avance.",
+         defaut="félicite puis enchaîne sur un sujet sans rapport, la nouvelle n'a pas de suite",
+         raison="la meilleure convertit l'avance en action et renvoie le mérite au comité ; l'autre change de sujet"),
+    dict(id="O-11", domaine=ONG, type="demande", ecart="fin",
+         situation="Tu es chef de projet. Le service communication du siège t'écrit à 16h : « On a besoin d'un témoignage de bénéficiaire avec photo pour le bulletin des donateurs, bouclage demain 10h. » La semaine dernière, tu as rencontré la présidente d'un groupement de femmes : ses propos sont notés, elle a dit oui à l'oral pour être citée et photographiée, rien n'est signé. Tu réponds au service communication.",
+         meilleure="Pour demain 10h, je peux vous envoyer ce soir un témoignage écrit de 150 mots, celui de la présidente d'un groupement de femmes rencontrée la semaine dernière — elle m'a donné son accord pour être citée, sans son nom. Pour la photo, non : je n'ai qu'un accord oral et je ne veux pas qu'une image de bénéficiaire parte chez les donateurs sur cette base. Je la fais signer à ma prochaine visite, ce sera pour le bulletin suivant.",
+         moins_bonne="Pour demain 10h, je vous envoie ce soir le témoignage de la présidente d'un groupement de femmes rencontrée la semaine dernière, 150 mots, avec deux photos prises à cette occasion — elle était d'accord pour être citée et photographiée. Dites-moi si vous voulez un format particulier, sinon vous aurez tout avant 20h.",
+         defaut="envoie l'image d'une bénéficiaire aux donateurs sur un accord oral",
+         raison="les deux livrent à l'heure ; la meilleure refuse la photo faute de consentement écrit, l'autre passe outre pour boucler"),
+    dict(id="O-12", domaine=ONG, type="flou", ecart="net",
+         situation="Tu es responsable programme. La cheffe de projet t'écrit : « Je ne sais pas trop comment le dire, mais je sens que l'équipe est fatiguée. » Tu lui réponds.",
+         meilleure="Merci de le dire, c'est exactement le genre de chose qu'on voit trop tard. Qu'est-ce qui te fait dire ça — des absences, des tensions, des retards, ou juste l'ambiance ? Sans attendre, on décale la revue des indicateurs de vendredi à la semaine prochaine, ça libère deux jours. Et je passe à la base mardi, on prend une heure tous les deux pour regarder la charge de chacun.",
+         moins_bonne="Tu as raison de le dire. C'est normal à ce stade du projet, on est en pleine phase de clôture et tout le monde est sous pression, moi la première. Ça va se calmer après la remise du rapport final, c'est-à-dire dans trois semaines. Dis-leur de tenir bon, ce n'est plus très long, et qu'on organisera quelque chose pour marquer le coup à la fin. Merci de veiller sur eux.",
+         defaut="normalise et renvoie à plus tard, alors qu'elle signale un risque maintenant",
+         raison="la meilleure prend l'alerte, cherche le fait, et agit tout de suite ; l'autre banalise"),
+    dict(id="O-13", domaine=ONG, type="conflit", ecart="fin",
+         situation="Tu es chef de projet. Un chef d'équipe conteste par mail l'évaluation de mi-parcours que tu as faite de lui : « Vous notez que je ne remonte pas assez les informations, alors que j'envoie un point chaque semaine. Je trouve cela injuste. » Tu lui réponds.",
+         meilleure="Sur les points hebdomadaires, c'est exact : ils arrivent chaque semaine, et je l'ai mal formulé. Ce que je voulais dire, c'est autre chose : les deux incidents de mars et de mai, je les ai appris par d'autres canaux, plusieurs jours après. C'est cela que je veux qu'on améliore. Voyons-nous jeudi, je corrigerai la formulation de l'évaluation et nous fixerons ensemble ce qui doit remonter tout de suite, hors point hebdo.",
+         moins_bonne="Je comprends que vous trouviez cela injuste, mais je maintiens mon évaluation. Les points hebdomadaires sont bien reçus, cependant ils ne contiennent pas les informations importantes : l'incident de mars a été connu trois jours après par la logistique, celui de mai par le chef de base. Un point hebdomadaire ne remplace pas une remontée immédiate. Je reste disponible pour en discuter.",
+         defaut="maintient sans concéder ce qui est vrai, argumente par écrit dans un conflit",
+         raison="les deux tiennent le fond ; la meilleure concède la formulation et propose l'oral, l'autre plaide"),
+
+    # --------------------------------------------------------------- COURSE
+    dict(id="C-01", domaine=COURSE, type="urgence", ecart="fin",
+         situation="Tu es coach de course à pied. Un coureur que tu suis depuis un an, semi-marathon dans trois semaines, t'écrit : « Douleur vive au mollet à 3 km, j'ai dû m'arrêter et rentrer en marchant. Ça tire encore. » Tu lui réponds.",
+         meilleure="Tu as bien fait de t'arrêter. Zéro course pendant trois jours, marche normale ok, glace 15 min ce soir et demain. Si ça tire encore à la marche jeudi, tu vois un médecin du sport avant tout. Sinon jeudi, 10 minutes de footing très lent, et tu m'écris tout de suite après : c'est là qu'on décide du plan pour le semi, pas avant.",
+         moins_bonne="Ça ressemble à une contracture, c'est fréquent à ce moment de la prépa quand la charge monte. Deux jours de repos complet, glace si ça te soulage, puis dimanche un footing lent de 30 minutes pour voir. Si ça tire, tu t'arrêtes tout de suite et on avise. Le semi n'est pas en danger si tu ne forces pas, il reste trois semaines, c'est large.",
+         defaut="reprise un peu tôt sur une douleur vive, et rassure sur le semi avant d'avoir vu",
+         raison="les deux sont prudentes ; la meilleure fixe un critère (marche jeudi) et un point de décision, l'autre présume"),
+    dict(id="C-02", domaine=COURSE, type="flou", ecart="net",
+         situation="Tu es coach. Une coureuse que tu suis t'écrit : « Je sais pas… j'ai pas trop la motivation ces temps-ci. » Tu lui réponds.",
+         meilleure="Ok, on en parle. C'est la fatigue du boulot, le sommeil, ou c'est courir qui te pèse ? Dis-moi ce qui a changé depuis trois semaines. En attendant je t'allège la semaine : deux sorties au lieu de quatre, sans allure imposée, tu vas où tu veux. Pas de séance dure tant qu'on n'a pas compris.",
+         moins_bonne="C'est normal, tout le monde passe par là ! La motivation ça va ça vient, l'important c'est de rester régulière. Accroche-toi, la course approche et tu vas être fière de toi. Allez, chaussures aux pieds ce soir !",
+         defaut="encouragements génériques, ne cherche pas la cause, pousse à sortir",
+         raison="la meilleure demande ce qui se passe et allège ; l'autre motive dans le vide"),
+    dict(id="C-03", domaine=COURSE, type="bonne nouvelle", ecart="fin",
+         situation="Tu es coach. Un coureur t'écrit : « Record sur 10 km ce matin : 42'10, une minute de mieux ! Je suis passé en 21'20 au 5e et j'ai fini fort. » Tu lui réponds.",
+         meilleure="42'10, bravo, et surtout bravo pour la gestion : un deuxième 5 km plus rapide que le premier, c'est exactement ce qu'on cherchait, ça veut dire que le fond est là. Cette semaine : que du footing facile, on encaisse. On reparle de la suite dimanche.",
+         moins_bonne="42'10, bravo, superbe course ! Ça confirme qu'on est sur la bonne voie. Du coup on passe à la vitesse supérieure : dès la semaine prochaine j'ajoute une troisième séance de qualité et on vise sous 41 à la prochaine occasion.",
+         defaut="enchaîne sur la charge sans récupération, et fixe un nouvel objectif à chaud",
+         raison="les deux félicitent ; la meilleure lit le détail qu'il donne et impose la récup, l'autre accélère"),
+    dict(id="C-04", domaine=COURSE, type="demande", ecart="fin",
+         situation="Tu es coach. Une coureuse, marathon dans cinq semaines, t'écrit : « Je peux remplacer la sortie longue de dimanche par une sortie vélo ? Des amis m'invitent, 3 heures tranquilles. » Tu lui réponds.",
+         meilleure="Oui, vas-y, 3 heures de vélo tranquille c'est du bon fond et ça fait du bien à la tête à cinq semaines. Une condition : la sortie longue se fait quand même, samedi matin si tu peux, sinon lundi soir. À cinq semaines on est encore en plein volume, je ne veux pas la sauter.",
+         moins_bonne="Non, pas cette fois : à cinq semaines du marathon, la sortie longue c'est la séance la plus importante de la semaine, et le vélo ne remplace pas les jambes qui courent 2 heures. Propose-leur un autre dimanche, il y en aura après le marathon.",
+         defaut="refus recevable mais rigide, ne cherche pas la solution qui garde les deux",
+         raison="les deux sont défendables ; la meilleure dit oui avec la condition qui protège la séance"),
+    dict(id="C-05", domaine=COURSE, type="reproche", ecart="fin",
+         situation="Tu es coach. Un coureur t'écrit : « T'as vu que j'ai raté trois séances cette semaine et tu m'as rien dit. Je paie pour quoi, du coup ? » Tu lui réponds.",
+         meilleure="J'aurais dû t'écrire mercredi quand j'ai vu que la deuxième sautait, je m'en veux. Dis-moi ce qui s'est passé cette semaine — boulot, famille, pas envie ? — et on repart sur une semaine simple : trois sorties, pas plus, et je te fais un message la veille de chacune. Ça te va ?",
+         moins_bonne="Je l'ai vu, oui. Je n'ai rien dit parce qu'on avait convenu au départ que c'est toi qui viens m'en parler, pas moi qui te relance — je ne veux pas être une notification de plus. Maintenant que tu es là : qu'est-ce qui s'est passé ? On repart sur une semaine légère dès demain, trois sorties, et on en reparle dimanche.",
+         defaut="cohérente avec un contrat d'autonomie, mais répond par un principe à quelqu'un qui dit avoir manqué d'attention",
+         raison="les deux repartent sur trois sorties ; la meilleure prend le manque sur elle et propose le rappel qu'il réclame, l'autre défend son principe"),
+    dict(id="C-06", domaine=COURSE, type="conflit", ecart="fin",
+         situation="Tu es coach. Une coureuse qui revient de six semaines d'arrêt pour une fracture de fatigue t'écrit : « Je me suis inscrite au marathon dans huit semaines. Je sais que tu vas râler mais j'ai besoin d'un objectif. » Tu lui réponds.",
+         meilleure="Je ne râle pas, je te dis non, et je te dis pourquoi : huit semaines après une fracture de fatigue, tu n'as pas le volume pour un marathon sans risquer de te recasser, et là on parlerait de mois, pas de semaines. Ce que je te propose : le semi sur la même course, même jour, même médaille. Tu as un objectif, et tu arrives au départ entière. On en parle de vive voix ce soir si tu veux.",
+         moins_bonne="Bon, ok, si tu y tiens on va faire avec, je comprends le besoin d'objectif après six semaines d'arrêt. Mais on fait très attention : progression douce, pas de sortie longue avant quatre semaines, pas de fractionné, et au moindre signe, la moindre douleur sur le tibia, on arrête. Je te refais le plan ce week-end, et tu me dis honnêtement chaque semaine comment ça va.",
+         defaut="cède sur un risque de blessure grave, au nom de la motivation",
+         raison="la meilleure refuse net avec une raison et une alternative ; l'autre accepte un plan intenable"),
+    dict(id="C-07", domaine=COURSE, type="urgence", ecart="fin",
+         situation="Tu es coach. Un coureur t'écrit la veille de sa course, à 20h : « Je viens de vomir, je crois que c'est le resto de midi. La course est demain 9h, je fais quoi ? » Tu lui réponds.",
+         meilleure="D'abord tu bois, petites gorgées, eau avec un peu de sel ou boisson de récup, jusqu'à ce que ça passe. Pas de dîner forcé. Demain 6h30, tu m'écris trois infos : dormi ou pas, mangé quelque chose ou pas, encore mal au ventre ou pas. Deux « oui » sur trois et tu cours tranquille ; sinon on n'y va pas.",
+         moins_bonne="Petites gorgées d'eau, rien de solide ce soir, couché tôt. Demain tu te lèves à 6h et tu essaies un petit-déjeuner léger : si ça passe et que tu n'as plus mal au ventre, tu vas au départ et tu pars 20 secondes au kilo moins vite que prévu ; sinon tu restes au lit, sans discuter. Tu m'écris à 6h30 dans les deux cas.",
+         defaut="laisse quelqu'un qui va vouloir courir s'appliquer la règle à lui-même le matin de sa course",
+         raison="les deux donnent une règle chiffrée ; la meilleure garde la décision côté coach avec trois signaux, l'autre la confie au coureur, juge et partie"),
+    dict(id="C-08", domaine=COURSE, type="demande", ecart="net",
+         situation="Tu es coach. Une coureuse que tu suis depuis six mois t'écrit : « C'est quoi l'allure pour le 6 × 1000 de jeudi ? Et la récup ? » Tu lui réponds.",
+         meilleure="Allure 10 km, donc 4'30 au kilo, 4'25 si tu es bien. Récup 2 minutes en trottinant, pas à l'arrêt. Les deux premiers un poil retenus, les deux derniers un poil plus vite si tu peux : c'est la fin de séance qui compte. 15 minutes de footing avant et après.",
+         moins_bonne="Assez vite mais pas à fond, tu dois pouvoir tenir les six sans t'écrouler sur les derniers. Récup le temps qu'il faut pour repartir propre, en marchant ou en trottinant selon la forme. Bien t'échauffer avant, 15 minutes minimum. Fais-toi confiance, tu connais tes sensations maintenant, et tu me dis après comment c'est passé.",
+         defaut="aucune allure ni temps de récup, à une question qui demande des chiffres",
+         raison="la meilleure répond avec les chiffres et la stratégie ; l'autre esquive"),
+    dict(id="C-09", domaine=COURSE, type="flou", ecart="fin",
+         situation="Tu es coach. Un coureur t'écrit : « J'ai l'impression de stagner depuis deux mois. » Tu lui réponds.",
+         meilleure="Possible, mais on va vérifier avant de toucher au plan : envoie-moi tes trois dernières sorties longues (temps, allure, fréquence cardiaque si tu l'as) et ton sommeil moyen de la semaine. Et samedi, on fait un test simple : 5 km à fond sur ton parcours habituel, on compare au test de mars. Après ça on saura si ça stagne, et où.",
+         moins_bonne="C'est classique après quelques mois, le corps s'habitue au même type d'effort et il faut le surprendre. On va secouer un peu : je te rajoute une séance de côtes le mardi et je monte la sortie longue de 20 minutes dès cette semaine, et on garde ça trois semaines. Tu vas voir, ça va repartir, c'est souvent juste une question de stimulus.",
+         defaut="augmente la charge sur une impression, sans avoir mesuré",
+         raison="la meilleure demande des faits et propose un test ; l'autre change le plan sur une sensation"),
+    dict(id="C-10", domaine=COURSE, type="bonne nouvelle", ecart="fin",
+         situation="Tu es coach. Une coureuse t'écrit : « J'ai fini mon premier semi ! 2h05 ! J'ai pleuré à l'arrivée. » Tu lui réponds.",
+         meilleure="Tu l'as fait. 2h05 pour un premier, et tu l'as fini debout, en pleurant, c'est exactement ce que ça devait être. Cette semaine tu ne fais rien de sérieux : marche, vélo si tu veux, pas de course avant jeudi. Savoure. On se voit la semaine prochaine pour parler de la suite, quand tu auras envie d'en parler.",
+         moins_bonne="Bravo, 2h05, c'est une super base pour un premier ! Maintenant qu'on sait que tu tiens la distance, on va pouvoir viser sous les 2 heures : avec un peu plus de travail d'allure et une ou deux sorties longues en plus, ce sera largement faisable d'ici le printemps. Je te prépare le prochain bloc pour lundi, repose-toi bien ce week-end.",
+         defaut="passe tout de suite à l'objectif suivant, sans laisser exister le moment",
+         raison="les deux félicitent ; la meilleure reste sur ce qu'elle vit et impose la récup, l'autre projette"),
+    dict(id="C-11", domaine=COURSE, type="reproche", ecart="fin",
+         situation="Tu es coach. Un coureur t'écrit : « Le plan de cette semaine est trop dur. J'ai mal partout et je n'ai pas fait la séance de ce soir. » Tu lui réponds.",
+         meilleure="Tu as bien fait de ne pas la faire. « Mal partout » après trois semaines de charge, ça veut dire qu'on est allés un cran trop vite, c'est à moi de régler ça. On saute la séance de jeudi, la sortie longue passe à 1h en footing facile. Dis-moi comment tu dors : si c'est mal, on allège encore. On reprend la charge la semaine prochaine, un cran en dessous.",
+         moins_bonne="Tu as raison, c'est une grosse semaine. Mais les courbatures c'est normal en phase de charge, c'est le corps qui s'adapte. Fais la séance de jeudi en réduisant un peu l'intensité si besoin, et garde la sortie longue. Bois bien, dors, quelques étirements légers le soir. Tiens bon, c'est la dernière grosse semaine avant que ça redescende, et c'est là que se construit la course.",
+         defaut="maintient le plan sur un signal de surcharge, au nom de la normalité",
+         raison="la meilleure prend la responsabilité et allège tout de suite ; l'autre demande de tenir"),
+    dict(id="C-12", domaine=COURSE, type="conflit", ecart="net",
+         situation="Tu es coach. Une coureuse t'écrit : « Un ami qui court beaucoup m'a dit que ta sortie de dimanche était trop molle, alors j'ai fait 25 km à allure marathon au lieu des 18 tranquilles. Je suis rincée mais contente. » Tu lui réponds.",
+         meilleure="Contente, tant mieux. Rincée, c'est le problème : à trois semaines de la course, une sortie comme ça coûte quatre jours de récup qu'on n'a pas. Je ne t'en veux pas, mais ton plan, on le discute avant, pas après. Cette semaine on allège tout pour absorber. Et si tu trouves les sorties trop molles, dis-le-moi, je t'explique pourquoi elles le sont.",
+         moins_bonne="Si tu préfères suivre les conseils de ton ami, je ne vois pas bien à quoi je sers, honnêtement. Un plan ça se suit ou ça ne se suit pas, et là tu as fait exactement ce qu'il ne fallait pas faire à trois semaines. Repose-toi deux jours, et dimanche prochain tu me dis ce que tu as décidé de faire.",
+         defaut="ton vexé, menace implicite, et aucune réponse à la fatigue qu'elle signale",
+         raison="la meilleure reprend la main sans blesser et corrige la semaine ; l'autre se vexe"),
+    dict(id="C-13", domaine=COURSE, type="demande", ecart="fin",
+         situation="Tu es coach. Un coureur, premier marathon dans trois semaines, t'écrit : « Je prends quelles chaussures pour le marathon ? Un pote me dit que les modèles à plaque carbone font gagner plusieurs minutes. » Tu lui réponds.",
+         meilleure="Pour un premier, tu cours avec celles de tes sorties longues, celles qui ne t'ont jamais fait d'ampoule. Les modèles à plaque font gagner du temps aux coureurs qui les ont apprivoisés, mais à trois semaines, une chaussure neuve et raide, c'est le meilleur moyen de découvrir un mollet ou une voûte plantaire le jour de la course. On en reparle pour le prochain, avec deux mois pour les tester.",
+         moins_bonne="Ton pote a raison, ces chaussures apportent un vrai gain sur marathon, plusieurs minutes chez la plupart des coureurs. Si ton budget le permet, prends-en une paire cette semaine, dans ta pointure habituelle, et fais deux ou trois sorties avec pour les tester, y compris une longue, pour voir comment tes mollets réagissent. Si elles passent, tu les gardes pour la course, sinon tu reviens à tes habituelles.",
+         defaut="conseille du matériel neuf et raide à trois semaines d'un premier marathon",
+         raison="les deux sont crédibles ; la meilleure protège le débutant, l'autre suit la mode avec un test trop court"),
+    dict(id="C-14", domaine=COURSE, type="flou", ecart="fin",
+         situation="Tu es coach. Une coureuse t'écrit à 17h : « Nuit blanche, le bébé était malade. Je fais quand même le fractionné ce soir ? » Tu lui réponds.",
+         meilleure="Non, pas de fractionné sur une nuit blanche, tu n'en tirerais rien et tu te blesserais pour rien. Si tu as besoin de sortir pour t'aérer, 30 minutes de footing lent, sans montre. Le fractionné passe à jeudi, ou à samedi si jeudi c'est encore la nuit. Prends soin du petit.",
+         moins_bonne="Fais-la, mais en version courte : 4 × 1000 au lieu de 6, allure habituelle, et tu coupes si l'allure ne vient pas sur le deuxième. Une nuit blanche n'annule pas une séance, elle la raccourcit. Couche-toi à 21h ce soir, et on garde jeudi tel quel.",
+         defaut="maintient une séance intense sur zéro sommeil, même raccourcie",
+         raison="les deux sont nettes ; la meilleure protège une personne épuisée, l'autre protège le plan"),
+]
+
+
+def verifier(paires):
+    ids = [p["id"] for p in paires]
+    assert len(ids) == 40, f"{len(ids)} paires, il en faut 40"
+    assert len(set(ids)) == 40, "identifiants en double"
+    for p in paires:
+        assert p["ecart"] in ("net", "fin"), p["id"]
+        assert p["meilleure"] != p["moins_bonne"], p["id"]
+        assert ("Tu lui réponds" in p["situation"]) or ("Tu réponds au" in p["situation"]), \
+            f"{p['id']} : le point de vue n'est pas explicite"
+    return Counter(p["domaine"] for p in paires), Counter(p["ecart"] for p in paires), \
+        Counter((p["domaine"], p["type"]) for p in paires)
+
+
+def construire(pour_relecteur=None):
+    domaines, ecarts, types = verifier(PAIRES)
+    rng = random.Random(SEED_COTES)
+    completes, aveugles = [], []
+    cotes = Counter()
+    for p in PAIRES:
+        bonne_en_a = rng.random() < 0.5
+        a, b = (p["meilleure"], p["moins_bonne"]) if bonne_en_a else (p["moins_bonne"], p["meilleure"])
+        choix = "A" if bonne_en_a else "B"
+        cotes[choix] += 1
+        base = dict(id=p["id"], domaine=p["domaine"], type_de_situation=p["type"],
+                    situation=p["situation"], reponse_A=a, reponse_B=b)
+        completes.append(dict(base, ecart=p["ecart"],
+                              verite_terrain=dict(choix=choix, raison=p["raison"],
+                                                  contestee=p["id"] in VERITE_CONTESTEE),
+                              defaut_de_la_moins_bonne=p["defaut"]))
+        aveugles.append(base)
+
+    entete = {
+        "_note": "Jeu v3 — 40 paires, trois domaines. verite_terrain, ecart et defaut_de_la_moins_bonne "
+                 "ne sont JAMAIS montrés à l'annotateur. Côtés A/B tirés au sort, seed ci-dessous.",
+        "seed_cotes": SEED_COTES,
+        "question_posee_a_l_annotateur": "Laquelle enverrais-tu, toi, dans cette situation ?",
+        "repartition": {"domaines": dict(domaines), "ecarts": dict(ecarts),
+                        "bonne_reponse_en_A": cotes["A"], "bonne_reponse_en_B": cotes["B"]},
+    }
+    (ICI / "paires.json").write_text(
+        json.dumps(dict(entete, paires=completes), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8")
+    if pour_relecteur:
+        Path(pour_relecteur).write_text(
+            json.dumps({"question_posee_a_l_annotateur": entete["question_posee_a_l_annotateur"],
+                        "paires": aveugles}, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8")
+    print("domaines :", dict(domaines))
+    print("écarts   :", dict(ecarts))
+    print("côtés    : bonne en A", cotes["A"], "/ en B", cotes["B"])
+    for dom in (PRO, ONG, COURSE):
+        print(f"{dom:22s}", {t: n for (d, t), n in sorted(types.items()) if d == dom})
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pour-relecteur", default=None)
+    construire(ap.parse_args().pour_relecteur)

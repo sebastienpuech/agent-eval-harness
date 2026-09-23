@@ -95,11 +95,14 @@ This section exists because a repository that only lists its strengths is not ev
   comparable. On 2026-09-23 it was scored against one human annotator on 40 pairs of short
   replies (three domains, none of them code review): Cohen's kappa **0.27**, 95 % CI
   [0.05 ; 0.49], three classes (A / B / equal). The same model asked the same question with no
-  grid scores 0.31 on the same set. The main cause is measured, not guessed: the grid saturates
-  (45 of 80 replies score 12/12), so it cannot separate two replies that are both good. One
-  annotator, 40 pairs, a wide interval: this is a first measurement, not a verdict, and it was
-  published as promised, whatever it said. Until the grid separates better, every quality
-  figure produced here is internally consistent and externally weak.
+  grid scores 0.31 on the same set; the paired difference is 0.04, 95 % CI [−0.17 ; +0.25], not
+  distinguishable from zero. A large part of the explanation is measured: the grid saturates (45
+  of 80 replies score 12/12), so it cannot separate two replies that are both good; without the
+  10 saturated pairs kappa is 0.39, still low. One annotator (the author), 40 pairs, a wide
+  interval: this is a first measurement, not a verdict, and it was published as promised,
+  whatever it said. Until the grid separates better, every quality
+  figure produced here is internally consistent and externally weak. The full material (set,
+  annotation, judge and baseline scores, report, scripts) is in [`calibration/`](calibration/).
 - **Measurement runs in `recorded` mode.** Held-out outputs are frozen in fixtures, which makes
   the suite deterministic and free of model calls. The `live` mode, where the target skill is
   actually run on each case, is deferred. The honest note sits in the source itself, at the top

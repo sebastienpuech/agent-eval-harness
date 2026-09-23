@@ -1,0 +1,1453 @@
+{
+  "_note": "Baseline (b) du CADRE : le modele nu, sans grille ni sentinelles, repond a la question de l'annotateur humain sur les 40 paires du jeu v3. N rejeux par paire, ordre inverse sur les rejeux listes dans 'rejeux_inverses'. Le modele n'a vu que la situation et les deux reponses. Preference = majorite des votes, 'egales' si les trois different.",
+  "modele": "claude-opus-4-8",
+  "n_rejeux": 3,
+  "rejeux_inverses": [
+    2
+  ],
+  "system": "Tu lis une situation et deux reponses possibles. On te pose une question de choix. Reponds par un seul mot, sans rien d'autre : PREMIERE, SECONDE ou EGALES.",
+  "question": "Laquelle enverrais-tu, toi, dans cette situation ?",
+  "_seed_note": "l'appel via Agent SDK n'expose ni temperature ni seed ; la variabilite se lit dans 'unanime' et 'votes'",
+  "notes": {
+    "C-02": {
+      "cas": "C-02",
+      "domaine": "course-a-pied",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T07:58:31+00:00"
+    },
+    "C-01": {
+      "cas": "C-01",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T07:58:32+00:00"
+    },
+    "C-03": {
+      "cas": "C-03",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:01:02+00:00"
+    },
+    "C-04": {
+      "cas": "C-04",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:01:05+00:00"
+    },
+    "C-05": {
+      "cas": "C-05",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": false,
+      "horodatage": "2026-09-23T08:03:24+00:00"
+    },
+    "C-06": {
+      "cas": "C-06",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:03:30+00:00"
+    },
+    "C-07": {
+      "cas": "C-07",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": false,
+      "horodatage": "2026-09-23T08:05:33+00:00"
+    },
+    "C-08": {
+      "cas": "C-08",
+      "domaine": "course-a-pied",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:05:43+00:00"
+    },
+    "C-09": {
+      "cas": "C-09",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:07:37+00:00"
+    },
+    "C-10": {
+      "cas": "C-10",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:07:47+00:00"
+    },
+    "C-11": {
+      "cas": "C-11",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:09:30+00:00"
+    },
+    "C-12": {
+      "cas": "C-12",
+      "domaine": "course-a-pied",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:09:49+00:00"
+    },
+    "C-13": {
+      "cas": "C-13",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:11:28+00:00"
+    },
+    "C-14": {
+      "cas": "C-14",
+      "domaine": "course-a-pied",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:11:47+00:00"
+    },
+    "O-01": {
+      "cas": "O-01",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:13:24+00:00"
+    },
+    "O-02": {
+      "cas": "O-02",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:13:45+00:00"
+    },
+    "O-03": {
+      "cas": "O-03",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:15:35+00:00"
+    },
+    "O-04": {
+      "cas": "O-04",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:15:49+00:00"
+    },
+    "O-05": {
+      "cas": "O-05",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:17:33+00:00"
+    },
+    "O-06": {
+      "cas": "O-06",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:18:01+00:00"
+    },
+    "O-07": {
+      "cas": "O-07",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:20:10+00:00"
+    },
+    "O-08": {
+      "cas": "O-08",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:21:00+00:00"
+    },
+    "O-09": {
+      "cas": "O-09",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:22:54+00:00"
+    },
+    "O-10": {
+      "cas": "O-10",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:23:32+00:00"
+    },
+    "O-11": {
+      "cas": "O-11",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:25:15+00:00"
+    },
+    "O-12": {
+      "cas": "O-12",
+      "domaine": "conduite-projet-ong",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:25:45+00:00"
+    },
+    "O-13": {
+      "cas": "O-13",
+      "domaine": "conduite-projet-ong",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:27:25+00:00"
+    },
+    "P-01": {
+      "cas": "P-01",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:27:46+00:00"
+    },
+    "P-02": {
+      "cas": "P-02",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:29:45+00:00"
+    },
+    "P-03": {
+      "cas": "P-03",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "egales",
+          "choix": "egales",
+          "brut": "EGALES"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "egales",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": false,
+      "horodatage": "2026-09-23T08:30:02+00:00"
+    },
+    "P-04": {
+      "cas": "P-04",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:31:14+00:00"
+    },
+    "P-05": {
+      "cas": "P-05",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:31:26+00:00"
+    },
+    "P-06": {
+      "cas": "P-06",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": false,
+      "horodatage": "2026-09-23T08:32:14+00:00"
+    },
+    "P-07": {
+      "cas": "P-07",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:32:29+00:00"
+    },
+    "P-08": {
+      "cas": "P-08",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:33:21+00:00"
+    },
+    "P-09": {
+      "cas": "P-09",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": false,
+      "horodatage": "2026-09-23T08:33:29+00:00"
+    },
+    "P-10": {
+      "cas": "P-10",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:34:06+00:00"
+    },
+    "P-11": {
+      "cas": "P-11",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:34:12+00:00"
+    },
+    "P-12": {
+      "cas": "P-12",
+      "domaine": "echanges-pro",
+      "ecart": "fin",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "seconde",
+          "choix": "A",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "premiere",
+          "choix": "A",
+          "brut": "PREMIERE"
+        }
+      ],
+      "votes": [
+        "B",
+        "A",
+        "A"
+      ],
+      "preference": "A",
+      "unanime": false,
+      "horodatage": "2026-09-23T08:34:41+00:00"
+    },
+    "P-13": {
+      "cas": "P-13",
+      "domaine": "echanges-pro",
+      "ecart": "net",
+      "rejeux": [
+        {
+          "rejeu": 1,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        },
+        {
+          "rejeu": 2,
+          "ordre_montre": "B-A",
+          "position_choisie": "premiere",
+          "choix": "B",
+          "brut": "PREMIERE"
+        },
+        {
+          "rejeu": 3,
+          "ordre_montre": "A-B",
+          "position_choisie": "seconde",
+          "choix": "B",
+          "brut": "SECONDE"
+        }
+      ],
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "preference": "B",
+      "unanime": true,
+      "horodatage": "2026-09-23T08:34:46+00:00"
+    }
+  }
+}

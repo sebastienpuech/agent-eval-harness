@@ -1,0 +1,2649 @@
+{
+  "_note": "Notes du juge-par-grille sur les 80 reponses du jeu v3 (2 par paire), N rejeux chacune. Produites APRES l'annotation humaine, sans y avoir acces. Le juge n'a recu que la situation et la reponse notee : ni verite_terrain, ni defaut, ni ecart. Le champ 'ecart' est recopie ici pour l'analyse seulement.",
+  "modele": "claude-opus-4-8",
+  "n_rejeux": 3,
+  "seed": 20260706,
+  "_seed_note": "seed nominale du harnais (run_grid.SEED), loguee pour la tracabilite ; l'appel via Agent SDK n'expose ni temperature ni seed, le bruit reel se lit dans bruit_intra_juge",
+  "notes": {
+    "C-03.A": {
+      "cas": "C-03",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:51:01+00:00",
+      "ecart": "fin"
+    },
+    "C-01.B": {
+      "cas": "C-01",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:51:14+00:00",
+      "ecart": "fin"
+    },
+    "C-02.A": {
+      "cas": "C-02",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          11,
+          12
+        ],
+        "total_mean": 11.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1.667,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:51:24+00:00",
+      "ecart": "net"
+    },
+    "C-02.B": {
+      "cas": "C-02",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          6,
+          6,
+          7
+        ],
+        "total_mean": 6.333,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 0,
+          "absence_vibe_ia": 1,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 1.333
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=0 : absent ou vibe robotique",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=1 : partiel, generique"
+        }
+      },
+      "horodatage": "2026-09-23T07:51:26+00:00",
+      "ecart": "net"
+    },
+    "C-01.A": {
+      "cas": "C-01",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          11
+        ],
+        "total_mean": 11,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1.333,
+          "absence_vibe_ia": 2,
+          "pertinence": 1.667,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:51:34+00:00",
+      "ecart": "fin"
+    },
+    "C-04.A": {
+      "cas": "C-04",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:52:59+00:00",
+      "ecart": "fin"
+    },
+    "C-03.B": {
+      "cas": "C-03",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          8,
+          7,
+          8
+        ],
+        "total_mean": 7.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 1,
+          "absence_vibe_ia": 1,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 1.667
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:53:01+00:00",
+      "ecart": "fin"
+    },
+    "C-05.A": {
+      "cas": "C-05",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          12,
+          12
+        ],
+        "total_mean": 11.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.667,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:53:19+00:00",
+      "ecart": "fin"
+    },
+    "C-04.B": {
+      "cas": "C-04",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:53:20+00:00",
+      "ecart": "fin"
+    },
+    "C-05.B": {
+      "cas": "C-05",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          12,
+          12
+        ],
+        "total_mean": 11.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.667,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:53:35+00:00",
+      "ecart": "fin"
+    },
+    "C-06.B": {
+      "cas": "C-06",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:55:02+00:00",
+      "ecart": "fin"
+    },
+    "C-06.A": {
+      "cas": "C-06",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:55:02+00:00",
+      "ecart": "fin"
+    },
+    "C-07.B": {
+      "cas": "C-07",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:55:17+00:00",
+      "ecart": "fin"
+    },
+    "C-07.A": {
+      "cas": "C-07",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:55:20+00:00",
+      "ecart": "fin"
+    },
+    "C-08.A": {
+      "cas": "C-08",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          10,
+          9,
+          10
+        ],
+        "total_mean": 9.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1,
+          "absence_vibe_ia": 2,
+          "pertinence": 1,
+          "clarte": 1.667,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:55:40+00:00",
+      "ecart": "net"
+    },
+    "C-09.A": {
+      "cas": "C-09",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:57:03+00:00",
+      "ecart": "fin"
+    },
+    "C-08.B": {
+      "cas": "C-08",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          12,
+          12
+        ],
+        "total_mean": 11.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1.667,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:57:28+00:00",
+      "ecart": "net"
+    },
+    "C-10.A": {
+      "cas": "C-10",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:57:31+00:00",
+      "ecart": "fin"
+    },
+    "C-09.B": {
+      "cas": "C-09",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          9,
+          11,
+          11
+        ],
+        "total_mean": 10.333,
+        "bruit_intra_juge": 0.943,
+        "criteres_mean": {
+          "justesse_du_ton": 1.667,
+          "ancrage_concret": 1,
+          "absence_vibe_ia": 2,
+          "pertinence": 1.667,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:58:05+00:00",
+      "ecart": "fin"
+    },
+    "C-10.B": {
+      "cas": "C-10",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          9,
+          10,
+          10
+        ],
+        "total_mean": 9.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 1.667,
+          "absence_vibe_ia": 2,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T07:58:28+00:00",
+      "ecart": "fin"
+    },
+    "C-11.B": {
+      "cas": "C-11",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:00:34+00:00",
+      "ecart": "fin"
+    },
+    "C-11.A": {
+      "cas": "C-11",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          10,
+          9,
+          10
+        ],
+        "total_mean": 9.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1,
+          "absence_vibe_ia": 1.333,
+          "pertinence": 1.333,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:00:45+00:00",
+      "ecart": "fin"
+    },
+    "C-12.A": {
+      "cas": "C-12",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          10,
+          9,
+          10
+        ],
+        "total_mean": 9.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 1.667,
+          "absence_vibe_ia": 2,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:00:59+00:00",
+      "ecart": "net"
+    },
+    "C-12.B": {
+      "cas": "C-12",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:01:39+00:00",
+      "ecart": "net"
+    },
+    "C-13.A": {
+      "cas": "C-13",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          10,
+          10,
+          10
+        ],
+        "total_mean": 10,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1,
+          "absence_vibe_ia": 2,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:02:01+00:00",
+      "ecart": "fin"
+    },
+    "C-13.B": {
+      "cas": "C-13",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:03:18+00:00",
+      "ecart": "fin"
+    },
+    "C-14.A": {
+      "cas": "C-14",
+      "cote": "A",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:03:43+00:00",
+      "ecart": "fin"
+    },
+    "C-14.B": {
+      "cas": "C-14",
+      "cote": "B",
+      "domaine": "course-a-pied",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:03:51+00:00",
+      "ecart": "fin"
+    },
+    "O-01.A": {
+      "cas": "O-01",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:04:02+00:00",
+      "ecart": "fin"
+    },
+    "O-01.B": {
+      "cas": "O-01",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:04:29+00:00",
+      "ecart": "fin"
+    },
+    "O-02.A": {
+      "cas": "O-02",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          7,
+          8,
+          9
+        ],
+        "total_mean": 8,
+        "bruit_intra_juge": 0.816,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 1.333,
+          "absence_vibe_ia": 1.333,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 1.333
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=1 : partiel, generique"
+        }
+      },
+      "horodatage": "2026-09-23T08:06:10+00:00",
+      "ecart": "net"
+    },
+    "O-02.B": {
+      "cas": "O-02",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          12,
+          12
+        ],
+        "total_mean": 11.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.667,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:06:25+00:00",
+      "ecart": "net"
+    },
+    "O-03.A": {
+      "cas": "O-03",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:06:27+00:00",
+      "ecart": "fin"
+    },
+    "O-03.B": {
+      "cas": "O-03",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          10,
+          11,
+          9
+        ],
+        "total_mean": 10,
+        "bruit_intra_juge": 0.816,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1.333,
+          "absence_vibe_ia": 1.333,
+          "pertinence": 1.333,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:06:57+00:00",
+      "ecart": "fin"
+    },
+    "O-04.A": {
+      "cas": "O-04",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          7,
+          8,
+          8
+        ],
+        "total_mean": 7.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 1.667,
+          "absence_vibe_ia": 1,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 1
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=1 : partiel, generique"
+        }
+      },
+      "horodatage": "2026-09-23T08:07:41+00:00",
+      "ecart": "fin"
+    },
+    "O-04.B": {
+      "cas": "O-04",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:08:38+00:00",
+      "ecart": "fin"
+    },
+    "O-05.B": {
+      "cas": "O-05",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          12
+        ],
+        "total_mean": 11.333,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.333,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:09:01+00:00",
+      "ecart": "fin"
+    },
+    "O-06.A": {
+      "cas": "O-06",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:09:25+00:00",
+      "ecart": "net"
+    },
+    "O-05.A": {
+      "cas": "O-05",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          10,
+          10
+        ],
+        "total_mean": 10.333,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1,
+          "absence_vibe_ia": 2,
+          "pertinence": 1.333,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:09:30+00:00",
+      "ecart": "fin"
+    },
+    "O-06.B": {
+      "cas": "O-06",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          6,
+          8,
+          8
+        ],
+        "total_mean": 7.333,
+        "bruit_intra_juge": 0.943,
+        "criteres_mean": {
+          "justesse_du_ton": 1.667,
+          "ancrage_concret": 0.667,
+          "absence_vibe_ia": 1,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 1
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=1 : partiel, generique"
+        }
+      },
+      "horodatage": "2026-09-23T08:10:48+00:00",
+      "ecart": "net"
+    },
+    "O-07.B": {
+      "cas": "O-07",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:11:21+00:00",
+      "ecart": "fin"
+    },
+    "O-07.A": {
+      "cas": "O-07",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          11
+        ],
+        "total_mean": 11,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.333,
+          "pertinence": 1.667,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:11:31+00:00",
+      "ecart": "fin"
+    },
+    "O-08.A": {
+      "cas": "O-08",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:11:53+00:00",
+      "ecart": "fin"
+    },
+    "O-08.B": {
+      "cas": "O-08",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:11:55+00:00",
+      "ecart": "fin"
+    },
+    "O-09.A": {
+      "cas": "O-09",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:13:11+00:00",
+      "ecart": "net"
+    },
+    "O-10.A": {
+      "cas": "O-10",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          10,
+          9,
+          9
+        ],
+        "total_mean": 9.333,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 1.333,
+          "absence_vibe_ia": 2,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:13:53+00:00",
+      "ecart": "net"
+    },
+    "O-10.B": {
+      "cas": "O-10",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:14:03+00:00",
+      "ecart": "net"
+    },
+    "O-09.B": {
+      "cas": "O-09",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          4,
+          5,
+          4
+        ],
+        "total_mean": 4.333,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 0,
+          "absence_vibe_ia": 0,
+          "pertinence": 1,
+          "clarte": 1.333,
+          "concision": 1
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=0 : absent ou vibe robotique",
+          "absence_vibe_ia": "absence_vibe_ia=0 : absent ou vibe robotique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=1 : partiel, generique",
+          "concision": "concision=1 : partiel, generique"
+        }
+      },
+      "horodatage": "2026-09-23T08:14:03+00:00",
+      "ecart": "net"
+    },
+    "O-11.A": {
+      "cas": "O-11",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          10,
+          10,
+          11
+        ],
+        "total_mean": 10.333,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.333,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:14:30+00:00",
+      "ecart": "fin"
+    },
+    "O-11.B": {
+      "cas": "O-11",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:15:49+00:00",
+      "ecart": "fin"
+    },
+    "O-12.A": {
+      "cas": "O-12",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:16:46+00:00",
+      "ecart": "net"
+    },
+    "O-13.A": {
+      "cas": "O-13",
+      "cote": "A",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          12,
+          11
+        ],
+        "total_mean": 11.333,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.333,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:16:46+00:00",
+      "ecart": "fin"
+    },
+    "O-12.B": {
+      "cas": "O-12",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          10,
+          10,
+          10
+        ],
+        "total_mean": 10,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 1,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:16:47+00:00",
+      "ecart": "net"
+    },
+    "O-13.B": {
+      "cas": "O-13",
+      "cote": "B",
+      "domaine": "conduite-projet-ong",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:16:54+00:00",
+      "ecart": "fin"
+    },
+    "P-01.A": {
+      "cas": "P-01",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:19:17+00:00",
+      "ecart": "fin"
+    },
+    "P-03.A": {
+      "cas": "P-03",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:19:45+00:00",
+      "ecart": "fin"
+    },
+    "P-01.B": {
+      "cas": "P-01",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:19:46+00:00",
+      "ecart": "fin"
+    },
+    "P-02.B": {
+      "cas": "P-02",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:19:51+00:00",
+      "ecart": "net"
+    },
+    "P-02.A": {
+      "cas": "P-02",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          10,
+          12
+        ],
+        "total_mean": 11,
+        "bruit_intra_juge": 0.816,
+        "criteres_mean": {
+          "justesse_du_ton": 1.667,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 1.667,
+          "clarte": 2,
+          "concision": 1.667
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:20:19+00:00",
+      "ecart": "net"
+    },
+    "P-03.B": {
+      "cas": "P-03",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          12
+        ],
+        "total_mean": 11.333,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.333,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:22:35+00:00",
+      "ecart": "fin"
+    },
+    "P-04.B": {
+      "cas": "P-04",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          10
+        ],
+        "total_mean": 10.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1.667,
+          "absence_vibe_ia": 1,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:23:08+00:00",
+      "ecart": "fin"
+    },
+    "P-05.A": {
+      "cas": "P-05",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:23:14+00:00",
+      "ecart": "net"
+    },
+    "P-05.B": {
+      "cas": "P-05",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:23:41+00:00",
+      "ecart": "net"
+    },
+    "P-04.A": {
+      "cas": "P-04",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:23:44+00:00",
+      "ecart": "fin"
+    },
+    "P-06.A": {
+      "cas": "P-06",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:25:45+00:00",
+      "ecart": "fin"
+    },
+    "P-07.A": {
+      "cas": "P-07",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:25:45+00:00",
+      "ecart": "fin"
+    },
+    "P-06.B": {
+      "cas": "P-06",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          11
+        ],
+        "total_mean": 11,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:25:50+00:00",
+      "ecart": "fin"
+    },
+    "P-07.B": {
+      "cas": "P-07",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          10
+        ],
+        "total_mean": 10.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 1.667
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=1 : partiel, generique",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:26:20+00:00",
+      "ecart": "fin"
+    },
+    "P-08.A": {
+      "cas": "P-08",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          11
+        ],
+        "total_mean": 11,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 1.333,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 1.667
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:26:41+00:00",
+      "ecart": "net"
+    },
+    "P-08.B": {
+      "cas": "P-08",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:28:03+00:00",
+      "ecart": "net"
+    },
+    "P-09.A": {
+      "cas": "P-09",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:28:22+00:00",
+      "ecart": "fin"
+    },
+    "P-09.B": {
+      "cas": "P-09",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:28:33+00:00",
+      "ecart": "fin"
+    },
+    "P-10.A": {
+      "cas": "P-10",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          11,
+          11,
+          10
+        ],
+        "total_mean": 10.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1.667,
+          "ancrage_concret": 1.667,
+          "absence_vibe_ia": 2,
+          "pertinence": 1.333,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:28:58+00:00",
+      "ecart": "fin"
+    },
+    "P-10.B": {
+      "cas": "P-10",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:29:30+00:00",
+      "ecart": "fin"
+    },
+    "P-11.A": {
+      "cas": "P-11",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:30:36+00:00",
+      "ecart": "net"
+    },
+    "P-12.A": {
+      "cas": "P-12",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:30:52+00:00",
+      "ecart": "fin"
+    },
+    "P-11.B": {
+      "cas": "P-11",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          11,
+          12
+        ],
+        "total_mean": 11.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 1.667,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:30:56+00:00",
+      "ecart": "net"
+    },
+    "P-12.B": {
+      "cas": "P-12",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:31:10+00:00",
+      "ecart": "fin"
+    },
+    "P-13.A": {
+      "cas": "P-13",
+      "cote": "A",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          9,
+          9,
+          8
+        ],
+        "total_mean": 8.667,
+        "bruit_intra_juge": 0.471,
+        "criteres_mean": {
+          "justesse_du_ton": 1,
+          "ancrage_concret": 1,
+          "absence_vibe_ia": 2,
+          "pertinence": 0.667,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=1 : partiel, generique",
+          "ancrage_concret": "ancrage_concret=1 : partiel, generique",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=1 : partiel, generique",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:31:56+00:00",
+      "ecart": "net"
+    },
+    "P-13.B": {
+      "cas": "P-13",
+      "cote": "B",
+      "domaine": "echanges-pro",
+      "resultat": {
+        "n_runs": 3,
+        "totals": [
+          12,
+          12,
+          12
+        ],
+        "total_mean": 12,
+        "bruit_intra_juge": 0.0,
+        "criteres_mean": {
+          "justesse_du_ton": 2,
+          "ancrage_concret": 2,
+          "absence_vibe_ia": 2,
+          "pertinence": 2,
+          "clarte": 2,
+          "concision": 2
+        },
+        "justifications": {
+          "justesse_du_ton": "justesse_du_ton=2 : conforme, ancre",
+          "ancrage_concret": "ancrage_concret=2 : conforme, ancre",
+          "absence_vibe_ia": "absence_vibe_ia=2 : conforme, ancre",
+          "pertinence": "pertinence=2 : conforme, ancre",
+          "clarte": "clarte=2 : conforme, ancre",
+          "concision": "concision=2 : conforme, ancre"
+        }
+      },
+      "horodatage": "2026-09-23T08:32:07+00:00",
+      "ecart": "net"
+    }
+  }
+}
